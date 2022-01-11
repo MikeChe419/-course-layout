@@ -67,18 +67,6 @@ const slider4 = new Swiper ('.swiper4', {
         },
     });
 
-const slider5 = new Swiper('.swiper5', {
-      slidesPerView: 1,
-      loop: true,
-  
-      pagination: {
-        clickable: true,
-          el: '.swiper-pagination1',
-        },
-      });
-
-
-
     window.addEventListener('DOMContentLoaded', function() {
       document.querySelector('#genre-btn1').addEventListener('click', function() {
         document.querySelector('#artists-container1').classList.toggle('active')
@@ -147,6 +135,20 @@ document.querySelector(`[data-target = ${path}]`).classList.add('catalog-contain
   });
 });
 
+document.querySelectorAll('.js-painter').forEach(function(tabsBtn) {
+  tabsBtn.addEventListener('click', function(e){
+    const painter=e.currentTarget.dataset.painter;
+
+document.querySelectorAll('.js-painter'). forEach(function(btn) {
+  btn.classList.remove('js-painter-active')});
+  e.currentTarget.classList.add('js-painter-active');
+  document.querySelectorAll('.catalog-content-artists-container').forEach(function(tabsBtn){
+    tabsBtn.classList.remove('artist-container-active')});
+
+document.querySelector(`[data-target = ${painter}]`).classList.add('artist-container-active');
+  });
+});
+
 new JustValidate('form', {
   rules: {
     name: {
@@ -205,3 +207,128 @@ function init(){
       document.querySelector('#menu').classList.toggle('is-active-1')
     })
   });
+
+  (() => {
+    const MOBILE_WIDTH = 576;
+    const DESKTOP_WIDTH = 768;
+    const btn = document.querySelector(".js-show");
+
+    const sliderMobileParams = {
+      paginationClassName: "events-pagination",
+      cardsContainerName: "js-slider",
+      cardsWrapName: "js-slides-wrap",
+      card: "slide",
+      hiddenClass: "is-hidden"
+    };
+
+    function getWindowWidth() {
+      return Math.max(
+        document.body.scrollWidth,
+        document.documentElement.scrollWidth,
+        document.body.offsetWidth,
+        document.documentElement.offsetWidth,
+        document.body.clientWidth,
+        document.documentElement.clientWidth
+      );
+    }
+
+    function activateMobileSlider(params) {
+      const pagination = document.createElement("div");
+      pagination.classList.add(params.paginationClassName);
+      params.cardsContainer.append(pagination);
+
+      params.cardsContainer.classList.add("swiper-container");
+      params.cardsWrap.classList.add("swiper-wrapper");
+
+      params.cardsSlider = new Swiper(`.${params.cardsContainerName}`, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: `.${params.cardsContainerName} .${params.paginationClassName}`
+        },
+
+        on: {
+          beforeInit() {
+            document.querySelectorAll(`.${params.card}`).forEach((el) => {
+              el.classList.add("swiper-slide-3");
+            });
+          },
+
+          beforeDestroy() {
+            this.slides.forEach((el) => {
+              el.classList.remove("swiper-slide-3");
+              el.removeAttribute("role");
+              el.removeAttribute("aria-label");
+            });
+
+            this.pagination.el.remove();
+          }
+        }
+      });
+    }
+
+    function destroyMobileSlider(params) {
+      params.cardsSlider.destroy();
+      params.cardsContainer.classList.remove("swiper-container");
+      params.cardsWrap.classList.remove("swiper-wrapper");
+      params.cardsWrap.removeAttribute("aria-live");
+      params.cardsWrap.removeAttribute("id");
+    }
+
+    function setHiddenCards(params, windowWidth) {
+      const cards = document.querySelectorAll(`.${params.card}`);
+      let quantity = cards.length;
+
+      if (windowWidth > MOBILE_WIDTH && windowWidth < DESKTOP_WIDTH) {
+        quantity = 2;
+      }
+
+      if (windowWidth >= DESKTOP_WIDTH) {
+        quantity = 3;
+      }
+
+      cards.forEach((card, i) => {
+        card.classList.remove(params.hiddenClass);
+        if (i >= quantity) {
+          card.classList.add(params.hiddenClass);
+        }
+      });
+    }
+
+    function showCards(e) {
+      const cards = document.querySelectorAll(`.${sliderMobileParams.card}`);
+
+      e.target.style = "display: none";
+
+      cards.forEach((card) => {
+        card.classList.remove(sliderMobileParams.hiddenClass);
+      });
+    }
+
+    function checkWindowWidthMobile(params) {
+      const currentWidth = getWindowWidth();
+      btn.style = "";
+      params.cardsContainer = document.querySelector(
+        `.${params.cardsContainerName}`
+      );
+      params.cardsWrap = document.querySelector(`.${params.cardsWrapName}`);
+
+      if (
+        currentWidth <= MOBILE_WIDTH &&
+        (!params.cardsSlider || params.cardsSlider.destroyed)
+      ) {
+        activateMobileSlider(params);
+      } else if (currentWidth > MOBILE_WIDTH && params.cardsSlider) {
+        destroyMobileSlider(params);
+      }
+
+      setHiddenCards(params, currentWidth);
+    }
+
+    checkWindowWidthMobile(sliderMobileParams);
+    btn.addEventListener("click", showCards);
+
+    window.addEventListener("resize", function () {
+      checkWindowWidthMobile(sliderMobileParams);
+    });
+  })();
