@@ -209,19 +209,19 @@ function init(){
   });
 
   (() => {
-    const MOBILE_WIDTH = 576;
-    const DESKTOP_WIDTH = 768;
+    const MOBILE_wIDTH = 576;
+    const DESKTOP_WIDT = 768;
     const btn = document.querySelector(".js-show");
 
     const sliderMobileParams = {
       paginationClassName: "events-pagination",
       cardsContainerName: "js-slider",
       cardsWrapName: "js-slides-wrap",
-      card: "slide",
+      card: "events-list-item-slide",
       hiddenClass: "is-hidden"
     };
 
-    function getWindowWidth() {
+    function getWindowWidh() {
       return Math.max(
         document.body.scrollWidth,
         document.documentElement.scrollWidth,
@@ -231,16 +231,15 @@ function init(){
         document.documentElement.clientWidth
       );
     }
-
     function activateMobileSlider(params) {
       const pagination = document.createElement("div");
       pagination.classList.add(params.paginationClassName);
       params.cardsContainer.append(pagination);
 
       params.cardsContainer.classList.add("swiper-container");
-      params.cardsWrap.classList.add("swiper-wrapper");
+      params.carsWrap.classList.add("swiper-wrapper");
 
-      params.cardsSlider = new Swiper(`.${params.cardsContainerName}`, {
+      params.cardsSlider = new Swiper('.${params.cardsContainerName}', {
         slidesPerView: 1,
         spaceBetween: 20,
         pagination: {
@@ -250,13 +249,13 @@ function init(){
         on: {
           beforeInit() {
             document.querySelectorAll(`.${params.card}`).forEach((el) => {
-              el.classList.add("swiper-slide-3");
+              el.classList.add("swiper-slide");
             });
           },
 
           beforeDestroy() {
             this.slides.forEach((el) => {
-              el.classList.remove("swiper-slide-3");
+              el.classList.remove("swiper-slide");
               el.removeAttribute("role");
               el.removeAttribute("aria-label");
             });
@@ -294,7 +293,6 @@ function init(){
         }
       });
     }
-
     function showCards(e) {
       const cards = document.querySelectorAll(`.${sliderMobileParams.card}`);
 

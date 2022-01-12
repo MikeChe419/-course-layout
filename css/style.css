@@ -785,14 +785,17 @@ body {
 }
 
 /*events*/
-.events-list {
-  justify-content: space-between;
+.events-list-slides-wrap {
   padding-bottom: 50px;
   flex-wrap: wrap;
 }
 
-.events-list-item {
-  flex-basis: 32%;
+.events-slider {
+  overflow: hidden;
+}
+
+.events-list-item-slide {
+  width: calc(100% / 3 - (50px * 2 / 3));
   max-width: 500px;
   min-height: 700px;
   padding: 350px 50px 50px 50px;
@@ -802,6 +805,15 @@ body {
   background-size: 500px 300px;
   border: 1px solid var(--color-lightgray);
   margin-bottom: 50px;
+  margin-right: 50px;
+}
+
+.events-list-item-slide:nth-child(3n) {
+  margin-right: 0;
+}
+
+.events-list-item-slide.is-hidden {
+  display: none;
 }
 
 .events-list-item-container {
@@ -888,26 +900,6 @@ body {
   font-size: 18px;
   line-height: 25px;
   font-weight: bold;
-}
-
-.slides-wrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.slide {
-  width: calc(100% / 3 - (40px * 2 / 3));
-  min-height: 100px;
-  margin-bottom: 20px;
-  margin-right: 40px;
-}
-
-.slide:nth-child(3n) {
-  margin-right: 0;
-}
-
-.slide.is-hidden {
-  display: none;
 }
 
 /*editions*/
@@ -1477,10 +1469,6 @@ body {
     max-width: 750px;
   }
 
-  #events-list-1 {
-    justify-items: center;
-  }
-
   .contacts-form-container {
     padding: 124px 67px 104px 50px;
   }
@@ -1532,17 +1520,17 @@ body {
     max-height: 340px;
   }
 
-  #event3 {
-    display: none;
+  .events-list-item-slide {
+    width: calc(100%/2 - (34px/2));
+    margin-right: 34px;
   }
 
-  .events-list {
-    flex-wrap: wrap;
-    justify-items: center;
+  .events-list-item-slide:nth-child(3n) {
+    margin-right: 34px;
   }
 
-  .events-list-item {
-    flex-basis: 47%;
+  .events-list-item-slide:nth-child(2n) {
+    margin-right: 0;
   }
 
   .editions-content-container {
@@ -1581,11 +1569,11 @@ body {
    flex-wrap: nowrap;
  }
 
-  .slides-wrap {
+  .events-list-slides-wrap {
     flex-wrap: nowrap;
   }
 
-  .slide {
+  .events-list-item-slide {
     width: 100%;
     margin-right: 0;
   }
@@ -1598,6 +1586,5 @@ body {
     display: flex;
   }
 }
-
 
 .contacts-container {padding-right: 0;}
