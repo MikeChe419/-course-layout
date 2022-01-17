@@ -113,6 +113,7 @@ body {
 /*header*/
 .header {
   background-color: var(--color-black);
+  position: relative;
 }
 
 .header-container {
@@ -122,6 +123,10 @@ body {
   align-items: center;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.header-bottom-container {
+  justify-content: space-between;
 }
 
 .header-nav-burger {
@@ -149,9 +154,6 @@ body {
   background: url("../img/header-search.svg") no-repeat;
   color: rgba(0, 0, 0, 0.01);
   height: 23px;
-  position: absolute;
-  right: 130px;
-  top: 30px;
   width: 24px;
   border: 0;
   cursor: pointer;
@@ -202,10 +204,9 @@ body {
 
 .header-genre-nav-container {
   position: absolute;
-  padding: 23px 160px;
+  padding: 23px 0;
   justify-content: space-between;
   top: 100px;
-  left: 0;
   height: 70px;
   width: 100%;
   z-index: 5;
@@ -220,26 +221,17 @@ body {
   margin-right: 97px;
  }
 
-.genre-artists-container {
-  position: absolute;
-  top: 48px;
-}
 
 .genre-artists-container {
-  display: none;
   max-height: 250px;
+  padding: 40px;
   background-color: rgba(0, 0, 0, 0.4);
   width: 300px;
-  padding: 40px;
   border: none;
 }
 
 .genre-artists-list-item:not(:last-child) {
   margin-bottom: 20px;
-}
-
-.active {
-  display: block;
 }
 
 .header-genre-btn {
@@ -251,6 +243,50 @@ body {
   background-image: url("../img/choice-button.svg");
   background-repeat: no-repeat;
   background-position: right center;
+}
+
+.header-genre-btn:hover, .header-genre-btn:focus {
+  color: var(--color-violet);
+}
+
+.dropdown-artists-container {
+  display: none;
+  position: absolute;
+  top: 48px;
+}
+
+.dropdown-artists-container.is-active-2 {
+  position: absolute;
+}
+
+.dropdown-artists-container.is-active-2 {
+  display: block;
+  animation-name: dropdownOpen;
+  animation-duration: 0.4s;
+}
+
+.dropdown-artists-container.iss-disabled {
+  display: block;
+  animation-name: dropdownClose;
+  animation-duration: 0.4s;
+}
+
+@keyframes dropdownOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dropdownClose {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .genre-artists-list-item {
@@ -785,40 +821,35 @@ body {
 }
 
 /*events*/
-.events-list-slides-wrap {
-  padding-bottom: 50px;
-  flex-wrap: wrap;
+.events-container {
+  position: relative;
 }
 
-.events-slider {
+.swiper5 {
   overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1600px;
+  height: 100%;
 }
 
 .events-list-item-slide {
-  width: calc(100% / 3 - (50px * 2 / 3));
-  max-width: 500px;
-  min-height: 700px;
+  box-sizing: border-box;
   padding: 350px 50px 50px 50px;
+  flex-direction: column;
+  flex-grow: 1;
   position: relative;
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: 500px 300px;
+  background-size: 500px;
   border: 1px solid var(--color-lightgray);
-  margin-bottom: 50px;
-  margin-right: 50px;
-}
-
-.events-list-item-slide:nth-child(3n) {
-  margin-right: 0;
-}
-
-.events-list-item-slide.is-hidden {
-  display: none;
+  min-height: 700px;
 }
 
 .events-list-item-container {
   flex-direction: column;
   flex-grow: 1;
+  height: 100%;
   justify-content: space-between;
 }
 
@@ -898,8 +929,14 @@ body {
   border: 2px solid var(--color-violet);
   border-radius: 100px;
   font-size: 18px;
-  line-height: 25px;
+  line-height: 25px;э
   font-weight: bold;
+}
+
+.events-pagination {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
 }
 
 /*editions*/
@@ -1477,9 +1514,6 @@ body {
     width: 330px;
   }
 
-  .editions-slider-container {
-    max-width: 600px;
-  }
 }
 
 @media (max-width:1024px) {
@@ -1519,44 +1553,6 @@ body {
   .artists-name-container {
     max-height: 340px;
   }
-
-  .events-list-item-slide {
-    width: calc(100%/2 - (34px/2));
-    margin-right: 34px;
-  }
-
-  .events-list-item-slide:nth-child(3n) {
-    margin-right: 34px;
-  }
-
-  .events-list-item-slide:nth-child(2n) {
-    margin-right: 0;
-  }
-
-  .editions-content-container {
-    flex-direction: column;
-   align-items: center;
-  }
-
-  .editions-input-checkbox-container {
-    max-height: 195px;
-  }
-
-  .editions-checkbox-list {
-    height: 160px;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-between;
-  }
-
-  .editions-checkbox-list-item {
-    max-width: 155px;
-  }
-
-  .editions-input-container {
-    margin-bottom: 50px;
-    max-width: 100%;
-  }
 }
 
 @media (max-width: 576px) {
@@ -1568,23 +1564,8 @@ body {
  .artists-names-list {
    flex-wrap: nowrap;
  }
-
-  .events-list-slides-wrap {
-    flex-wrap: nowrap;
-  }
-
-  .events-list-item-slide {
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .event-container-btn {
-    display: none;
-  }
-
-  .editions-accordion-list {
-    display: flex;
-  }
 }
 
-.contacts-container {padding-right: 0;}
+.contacts-container {
+  padding-right: 0;
+}

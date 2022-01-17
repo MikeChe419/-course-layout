@@ -1,7 +1,6 @@
 const swiper = new Swiper('.swiper1', {
     slidesPerView: 1,
     loop: true,
-
     pagination: {
       clickable: true,
         el: '.swiper-pagination',
@@ -67,36 +66,71 @@ const slider4 = new Swiper ('.swiper4', {
         },
     });
 
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#genre-btn1').addEventListener('click', function() {
-        document.querySelector('#artists-container1').classList.toggle('active')
-      });
+    const slider5 = new Swiper ('.swiper5', {
+      slidesPerView: 1,
+      spaceBetween: 50,
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3
+        },
+      },
+      pagination: {
+        clickable: true,
+        el: '.events-pagination',
+      }
     });
 
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#genre-btn2').addEventListener('click', function() {
-        document.querySelector('#artists-container2').classList.toggle('active')
-      });
-    });
+const params = {
+    btnClassName: "js-header-dropdown-btn",
+    dropClassName: "js-header-drop",
+    activeClassName: "is-active-2",
+    disabledClassName: "is-disabled"
+  }
 
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#genre-btn3').addEventListener('click', function() {
-        document.querySelector('#artists-container3').classList.toggle('active')
-      });
-    });
+  function onDisable(evt) {
+    if (evt.target.classList.contains(params.disabledClassName)) {
+      evt.target.classList.remove(params.disabledClassName, params.activeClassName);
+      evt.target.removeEventListener("animationend", onDisable);
+    }
+  }
 
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#genre-btn4').addEventListener('click', function() {
-        document.querySelector('#artists-container4').classList.toggle('active')
-      });
-    });
 
-    window.addEventListener('DOMContentLoaded', function() {
-      document.querySelector('#genre-btn5').addEventListener('click', function() {
-        document.querySelector('#artists-container5').classList.toggle('active')
-      });
-    });
+function setMenuListener() {
+  document.addEventListener("click", (evt) => {
+    const activeElements =
+    document.querySelectorAll(`.${params.btnClassName}.${params.activeClassName}, .${params.dropClassName}.${params.activeClassName}`);
 
+    if (activeElements.length && !evt.target.closest('.is-active-2'))  {
+      activeElements.forEach((curent) => {
+        if(current.classList.contains('js-header-dropdown-btn')) {
+          current.classList.remove('is-active-2');
+        } else {
+          current.classList.add('is-disabled');
+        }
+      });
+    }
+
+    if (evt.target.closest('.js-header-dropdown-btn')) {
+      const btn = evt.target.closest('.js-header-dropdown-btn');
+      const genres = btn.dataset.genres;
+      const drop = document.querySelector(`.${params.dropClassName}[data-target="${genres}"]`);
+
+      btn.classList.toggle('is-active-2');
+
+      if (!drop.classList.contains('is-active-2')) {
+        drop.classList.add('is-active-2');
+        drop.addEventListener("animationend", onDisable);
+      } else {
+        drop.classList.add('is-disabled');
+      }
+    }
+  });
+}
+
+setMenuListener();
 
 const multiDefault = () => {
   const elements = document.querySelectorAll('.genre');
@@ -208,125 +242,3 @@ function init(){
     })
   });
 
-  (() => {
-    const MOBILE_wIDTH = 576;
-    const DESKTOP_WIDT = 768;
-    const btn = document.querySelector(".js-show");
-
-    const sliderMobileParams = {
-      paginationClassName: "events-pagination",
-      cardsContainerName: "js-slider",
-      cardsWrapName: "js-slides-wrap",
-      card: "events-list-item-slide",
-      hiddenClass: "is-hidden"
-    };
-
-    function getWindowWidh() {
-      return Math.max(
-        document.body.scrollWidth,
-        document.documentElement.scrollWidth,
-        document.body.offsetWidth,
-        document.documentElement.offsetWidth,
-        document.body.clientWidth,
-        document.documentElement.clientWidth
-      );
-    }
-    function activateMobileSlider(params) {
-      const pagination = document.createElement("div");
-      pagination.classList.add(params.paginationClassName);
-      params.cardsContainer.append(pagination);
-
-      params.cardsContainer.classList.add("swiper-container");
-      params.carsWrap.classList.add("swiper-wrapper");
-
-      params.cardsSlider = new Swiper('.${params.cardsContainerName}', {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        pagination: {
-          el: `.${params.cardsContainerName} .${params.paginationClassName}`
-        },
-
-        on: {
-          beforeInit() {
-            document.querySelectorAll(`.${params.card}`).forEach((el) => {
-              el.classList.add("swiper-slide");
-            });
-          },
-
-          beforeDestroy() {
-            this.slides.forEach((el) => {
-              el.classList.remove("swiper-slide");
-              el.removeAttribute("role");
-              el.removeAttribute("aria-label");
-            });
-
-            this.pagination.el.remove();
-          }
-        }
-      });
-    }
-
-    function destroyMobileSlider(params) {
-      params.cardsSlider.destroy();
-      params.cardsContainer.classList.remove("swiper-container");
-      params.cardsWrap.classList.remove("swiper-wrapper");
-      params.cardsWrap.removeAttribute("aria-live");
-      params.cardsWrap.removeAttribute("id");
-    }
-
-    function setHiddenCards(params, windowWidth) {
-      const cards = document.querySelectorAll(`.${params.card}`);
-      let quantity = cards.length;
-
-      if (windowWidth > MOBILE_WIDTH && windowWidth < DESKTOP_WIDTH) {
-        quantity = 2;
-      }
-
-      if (windowWidth >= DESKTOP_WIDTH) {
-        quantity = 3;
-      }
-
-      cards.forEach((card, i) => {
-        card.classList.remove(params.hiddenClass);
-        if (i >= quantity) {
-          card.classList.add(params.hiddenClass);
-        }
-      });
-    }
-    function showCards(e) {
-      const cards = document.querySelectorAll(`.${sliderMobileParams.card}`);
-
-      e.target.style = "display: none";
-
-      cards.forEach((card) => {
-        card.classList.remove(sliderMobileParams.hiddenClass);
-      });
-    }
-
-    function checkWindowWidthMobile(params) {
-      const currentWidth = getWindowWidth();
-      btn.style = "";
-      params.cardsContainer = document.querySelector(
-        `.${params.cardsContainerName}`
-      );
-      params.cardsWrap = document.querySelector(`.${params.cardsWrapName}`);
-
-      if (
-        currentWidth <= MOBILE_WIDTH &&
-        (!params.cardsSlider || params.cardsSlider.destroyed)
-      ) {
-        activateMobileSlider(params);
-      } else if (currentWidth > MOBILE_WIDTH && params.cardsSlider) {
-        destroyMobileSlider(params);
-      }
-
-      setHiddenCards(params, currentWidth);
-    }
-
-    checkWindowWidthMobile(sliderMobileParams);
-    btn.addEventListener("click", showCards);
-
-    window.addEventListener("resize", function () {
-      checkWindowWidthMobile(sliderMobileParams);
-    });
-  })();
