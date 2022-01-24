@@ -139,7 +139,7 @@
                 <div class="hero-slider-container">
                   <div class="swiper1">
                     <div class="swiper-wrapper">
-                      <!-- слайды -->
+
                       <div class="swiper-slide slide1">
                       </div>
                       <div class="swiper-slide slide2">
@@ -173,6 +173,11 @@
                   <option value="art" selected>Живопись</option>
                   <option value="picture">Рисунок</option>
                   <option value="sculpture">Скульптура</option>
+                </select>
+                <select class="art1" name="art">
+                  <option value="art" selected>Автор</option>
+                  <option value="picture">Направление</option>
+                  <option value="sculpture">Техника</option>
                 </select>
             </div>
             <div class="galery-slider-container">
@@ -547,29 +552,243 @@
             <div class="events-pagination"></div>
         </div>
         </section>
+        <section class="section editions-section" id="editions">
+          <div class="container editions-container">
+              <h2 class="section-title editions-title">Издания</h2>
+              <div class="editions-content-container flex">
+                  <div class="editions-input-container">
+                  <div class="editions-input-checkbox-container flex">
+                      <button class=" btn-reset checkbox-title-btn js-check-heading flex">Категории</button>
+                              <label class="editions-checkbox-label" for="check">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Бестселлеры</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+                              <label class="editions-checkbox-label" for="check1">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check1">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Искусство</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+
+                              <label class="editions-checkbox-label" for="check2">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check2">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Архитектура</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+
+                              <label class="editions-checkbox-label" for="check3">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check3">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Дизайн</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+                              <label class="editions-checkbox-label" for="check4">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check4">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Мода</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+                              <label class="editions-checkbox-label" for="check5">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check5">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Детям</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+                              <label class="editions-checkbox-label" for="check6">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check6">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Художественная литература</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+                              <label class="editions-checkbox-label" for="check7">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check7">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Публицистика</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+                              <label class="editions-checkbox-label" for="check8">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check8">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Путеводители</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+                              <label class="editions-checkbox-label" for="check9">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check9">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Философия</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+
+                              <label class="editions-checkbox-label" for="check10">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check10">
+                                  <span class="checkbox-content">
+                                     <span class="visual-check"></span>
+                                     <span class="check-text">Учебная литература</span>
+                                    <span class="close-icon"></span>
+                                    </span>
+                                  </label>
+
+                              <label class="editions-checkbox-label" for="check11">
+                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check11">
+                                  <span class="checkbox-content">
+                                    <span class="visual-check"></span>
+                                    <span class="check-text">Журналы и газеты</span>
+                                    <span class="close-icon"></span>
+                                  </span>
+                                </label>
+                  </div>
+                      <div class="edition-price-container">
+                          <h3 class="editions-checkbox-title">Цена</h3>
+                          <div class="input-price-container flex">
+                              <span class="price-descr">От</span><input type="text" class="price-input" placeholder="50"><span class="price-descr">до</span><input type="text" class="price-input" placeholder="25000"><span class="price-descr">руб.</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="editions-slider-container js-slider-main">
+                      <div class="swiper3 js-slider">
+                          <div class="swiper-wrapper js-slides-wrap editions-wrapper">
+                              <!-- слайды -->
+                              <div class="swiper-slide swiper-slide-1 swpr-slide">
+                                  <div class="edition-item-descr-container flex">
+                                      <img src="img/edition1.jpg" alt="" class="edition-title-img">
+                                      <div class="editon-content-container flex">
+                                          <div class="edition-descr-container flex">
+                                              <p class="edition-name">Исккусство цвета</p>
+                                              <p class="edition-wrighter">Иттен, Иоханнес</p>
+                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                          </div>
+                                          <div class="price">620руб</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide swiper-slide-2 swpr-slide">
+                                  <div class="edition-item-descr-container flex">
+                                      <img src="img/edition2.jpg" alt="" class="edition-title-img">
+                                      <div class="editon-content-container flex">
+                                          <div class="edition-descr-container flex">
+                                              <p class="edition-name">Типографика</p>
+                                              <p class="edition-wrighter">Рудер, Эмиль</p>
+                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                          </div>
+                                          <div class="price">2450руб.</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide swiper-slide-3 swpr-slide">
+                                  <div class="edition-item-descr-container flex">
+                                      <img src="img/edition3.jpg" alt="" class="edition-title-img">
+                                      <div class="editon-content-container flex">
+                                          <div class="edition-descr-container flex">
+                                              <p class="edition-name">Книга про буквы</p>
+                                              <p class="edition-wrighter">Гордон, юрий</p>
+                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                          </div>
+                                          <div class="price">2200руб.</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide swiper-slide-4 swpr-slide">
+                                  <div class="edition-item-descr-container flex">
+                                      <img src="img/edition4.jpg" alt="" class="edition-title-img">
+                                      <div class="editon-content-container flex">
+                                          <div class="edition-descr-container flex">
+                                              <p class="edition-name">Николай Ильин</p>
+                                              <p class="edition-wrighter">Кричевский, Владимир</p>
+                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                          </div>
+                                          <div class="price">1 100руб</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide swiper-slide-5 swpr-slide">
+                                  <div class="edition-item-descr-container flex">
+                                      <img src="img/edition5.jpg" alt="" class="edition-title-img">
+                                      <div class="editon-content-container flex">
+                                          <div class="edition-descr-container flex">
+                                              <p class="edition-name">Модульные&nbsp;сетки&nbsp;в&nbsp;граф...</p>
+                                              <p class="edition-wrighter">Мюллер-Брокманн, Йозеф</p>
+                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                          </div>
+                                          <div class="price">1 450руб</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide swiper-slide-6 swpr-slide">
+                                  <div class="edition-item-descr-container flex">
+                                      <img src="img/edition7.jpg" alt="" class="edition-title-img">
+                                      <div class="editon-content-container flex">
+                                          <div class="edition-descr-container flex">
+                                              <p class="edition-name">Эволюция&nbsp;графических&nbsp;ст...</p>
+                                              <p class="edition-wrighter">Хеллер, Чваст</p>
+                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                          </div>
+                                          <div class="price">3 200руб</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="swiper-slide swiper-slide-7 swpr-slide">
+                                  <div class="edition-item-descr-container flex">
+                                      <img src="img/edition8.jpg" alt="" class="edition-title-img">
+                                      <div class="editon-content-container flex">
+                                          <div class="edition-descr-container flex">
+                                              <p class="edition-name">Искусство&nbsp;и&nbsp;визуальное в...</p>
+                                              <p class="edition-wrighter">Арнхейм, Рудольф</p>
+                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                          </div>
+                                          <div class="price">2 200руб</div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
         <section class="section projects-section" id="projects">
             <div class="container projects-container">
                 <h2 class="section-title projects-container-title">Проекты</h2>
                 <div class="projects-descr-popup-container">
-                <p class="projects-container-descr">Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно-пропагандистское</p>
-                <div class="marker"> </div>
-                <div class="popup" id="popup1">
-                    Пример современных тенденций - современная методология разработки
-                </div>
-                 <p class="projects-container-descr"> обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены </p>
-                 <div class="marker"> </div>
-                <div class="popup" id="popup2">
-                    Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции
-                </div>
-                <p class="projects-container-descr">исключительно в разрезе маркетинговых и финансовых</p>
-                <div class="marker"> </div>
-                <div class="popup" id="popup3">
-                    В стремлении повысить качество
-                </div>
-                <p class="projects-container-descr">    предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее: <a href="" class="projects-descr-link">blanchard-art.ru/projects/about</a></p>
+                <p class="projects-container-descr">Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно-пропагандистское&nbsp;
+                    <button class="projects-tooltip-btn btn-reset js-tooltip" data-tippy-content="Пример современных тенденций - современная методология разработки">i</button>&nbsp;обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены&nbsp;
+                    <button class="projects-tooltip-btn btn-reset js-tooltip" data-tippy-content="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции">i</button>&nbsp;исключительно в разрезе маркетинговых и финансовых&nbsp;
+                    <button class="projects-tooltip-btn btn-reset js-tooltip" data-tippy-content="В стремлении повысить качество">i</button>&nbsp;предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее:&nbsp;
+                    <a href="" class="projects-descr-link">blanchard-art.ru/projects/about</a>
+                </p>
                 </div>
                 <h3 class="projects-container-partner-title">Партнеры проектов</h3>
-                <div class="partners-sider-container">
+                <div class="partners-slider-container">
                     <div class="partner-slider-navigation-container">
                     <div class="swiper4 flex">
                         <div class="swiper-wrapper swiper-wrapper4">
@@ -610,12 +829,10 @@
         </section>
         <section class="section contacts-section" id="contacts">
             <div class="container contacts-container">
-                <h2 class="section-title contacts-container-title">Контакты</h2>
-                <div class="contacts-content-container flex">
+              <h2 class="section-title contacts-container-title">Контакты</h2>
+              <div class="contacts-content-container flex">
                 <div class="contacts-form-container">
-                    <h3 class="contacts-form-container-title">Шоурум №4</h3>
-                    <address class="contacts-address">Леонтьевский переулок дом 5/1</address>
-                    <form action="http://jsonplaceholder.typecode.com/posts" method="POST" class="form flex">
+                    <form action="http://jsonplaceholder.typecode.com/posts" method="POST" class="form-1 flex">
                         <h4 class="contacts-form-title">Заказать обратный звонок</h4>
                         <label class="contacts-form-label">
                             <input class="form-input" type="text" name="name" data-validate-field="name" placeholder="Имя*" required aria-label="Введите ваше Имя">
@@ -623,7 +840,7 @@
                         <label class="contacts-form-label">
                             <input class="form-input" type="tel" name="phone" data-validate-field="tel" placeholder="Телефон*" required aria-label="Введите ваш телефон">
                         </label>
-                        <button class=" btn-reset form-btn" aria-label="Заказать">Заказать</button>
+                        <button type="submit" class="btn-reset form-btn" aria-label="Заказать">Заказать</button>
                     </form>
                     <h4 class="contacts-form-title">Связаться в один клик</h4>
                     <ul class="social-links-list list-reset flex">
@@ -640,12 +857,16 @@
                     </ul>
                 </div>
                 <div id="map" class="map-container">
-                  </div>
+                </div>
+                <div class="address-container flex">
+                  <h3 class="contacts-form-container-title">Шоурум №4</h3>
+                    <address class="contacts-address">Леонтьевский переулок дом 5/1</address>
+                </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="footer">
+   <footer class="footer">
         <div class="container footer-container flex">
             <div class="header-logo">
                 <a href="" class="footer-main-link">
@@ -678,7 +899,8 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
     <script src="js/just-validate.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="js/index.js"></script>
-    <script src="js/event-swiper.js"></script>
 </body>
 </html>

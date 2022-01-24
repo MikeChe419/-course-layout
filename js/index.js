@@ -1,3 +1,9 @@
+window.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('#burger').addEventListener('click', function() {
+    document.querySelector('#menu').classList.toggle('is-active-1')
+  })
+});
+
 const swiper = new Swiper('.swiper1', {
     slidesPerView: 1,
     loop: true,
@@ -10,7 +16,7 @@ const swiper = new Swiper('.swiper1', {
 const slider2 = new Swiper ('.swiper2', {
       slidesPerView: 1,
       breakpoints: {
-        576: {
+        676: {
           slidesPerView: 2,
           grid: {
             rows: 2,
@@ -32,21 +38,122 @@ const slider2 = new Swiper ('.swiper2', {
         },
     });
 
-const slider3 = new Swiper ('.swiper3', {
-      slidesPerView: 2,
-      spaceBetween: 50,
-      loop: false,
-      breakpoints: {
-        1670: {
-          slidesPerView: 3,
-      },
-    },
-    autoHeight: false,
-      navigation: {
-        nextEl: '.swiper-button-next1',
-        prevEl: '.swiper-button-prev1',
-        },
-    });
+    (() => {
+      const MOBILE_WIDTH = 676;
+
+      const sliderParamsNotMobile = {
+        sliderWrap: "js-slider-main",
+        cardsContainerName: "js-slider",
+        cardsWrapName: "js-slides-wrap",
+        card: "swpr-slide",
+        navClassName: "test-navigation",
+        navBtnClassName: "nav-btn",
+        navPrev: "swiper-button-prev1",
+        navNext: "swiper-button-next1"
+      };
+
+      function getWindowWidth() {
+        console.log(document.body.scrollWidth);
+        return Math.max(
+          document.body.scrollWidth,
+          document.documentElement.scrollWidth,
+          document.body.offsetWidth,
+          document.documentElement.offsetWidth,
+          document.body.clientWidth,
+          document.documentElement.clientWidth
+        );
+      }
+
+      function activateSlider(params) {
+        const navigation = document.createElement("div");
+        const pagination = document.createElement("div");
+        const navBtnPrev = document.createElement("button");
+        const navBtnNext = document.createElement("button");
+
+        navigation.classList.add(params.navClassName);
+
+        navBtnPrev.classList.add(params.navBtnClassName);
+        navBtnPrev.classList.add(params.navPrev);
+        navigation.prepend(navBtnPrev);
+
+        pagination.classList.add(params.paginationClassName);
+        navigation.append(pagination);
+
+        navBtnNext.classList.add(params.navBtnClassName);
+        navBtnNext.classList.add(params.navNext);
+        navigation.append(navBtnNext);
+
+        params.sliderWrapElem.prepend(navigation);
+
+        params.cardsContainer.classList.add("swiper-container");
+        params.cardsWrap.classList.add("swiper-wrapper");
+
+        params.cardsSlider = new Swiper('.swiper3', {
+          slidesPerView: 2,
+          spaceBetween: 50,
+           breakpoints: {
+             },
+             1368: {
+               slidesPerView: 3,
+             },
+          navigation: {
+            nextEl: `.${params.navNext}`,
+            prevEl: `.${params.navPrev}`
+          },
+
+          on: {
+            beforeInit() {
+              document.querySelectorAll(`.${params.card}`).forEach((el) => {
+                el.classList.add("swiper-slide");
+              });
+            },
+
+            beforeDestroy() {
+              this.slides.forEach((el) => {
+                el.classList.remove("swiper-slide");
+                el.removeAttribute("role");
+                el.removeAttribute("aria-label");
+              });
+
+              this.pagination.el.remove();
+              navigation.remove();
+            }
+          }
+        });
+      }
+
+      function destroySlider(params) {
+        params.cardsSlider.destroy();
+        params.cardsContainer.classList.remove("swiper-container");
+        params.cardsWrap.classList.remove("swiper-wrapper");
+        params.cardsWrap.removeAttribute("aria-live");
+        params.cardsWrap.removeAttribute("id");
+      }
+
+      function checkWindowWidth(params) {
+        const currentWidth = getWindowWidth();
+        params.sliderWrapElem = document.querySelector(`.${params.sliderWrap}`);
+        params.cardsContainer = document.querySelector(
+          `.${params.cardsContainerName}`
+        );
+        params.cardsWrap = document.querySelector(`.${params.cardsWrapName}`);
+
+        if (
+          currentWidth > MOBILE_WIDTH &&
+          (!params.cardsSlider || params.cardsSlider.destroyed)
+        ) {
+          activateSlider(params);
+        } else if (currentWidth <= MOBILE_WIDTH && params.cardsSlider) {
+          destroySlider(params);
+        }
+      }
+
+      checkWindowWidth(sliderParamsNotMobile);
+
+      window.addEventListener("resize", function () {
+        checkWindowWidth(sliderParamsNotMobile);
+      });
+    })();
 
 const slider4 = new Swiper ('.swiper4', {
       slidesPerView: 1,
@@ -70,7 +177,7 @@ const slider4 = new Swiper ('.swiper4', {
       slidesPerView: 1,
       spaceBetween: 50,
       breakpoints: {
-        768: {
+        576: {
           slidesPerView: 2,
         },
         1024: {
@@ -100,15 +207,14 @@ const params = {
 
 function setMenuListener() {
   document.addEventListener("click", (evt) => {
-    const activeElements =
-    document.querySelectorAll(`.${params.btnClassName}.${params.activeClassName}, .${params.dropClassName}.${params.activeClassName}`);
+    const activeElements = document.querySelectorAll(`.${params.btnClassName}.${params.activeClassName}, .${params.dropClassName}.${params.activeClassName}`);
 
-    if (activeElements.length && !evt.target.closest('.is-active-2'))  {
-      activeElements.forEach((curent) => {
-        if(current.classList.contains('js-header-dropdown-btn')) {
-          current.classList.remove('is-active-2');
+    if (activeElements.length && !evt.target.closest(`.${params.activeClassName}`))  {
+      activeElements.forEach((current) => {
+        if(current.classList.contains(params.btnClassName)) {
+          current.classList.remove(params.activeClassName);
         } else {
-          current.classList.add('is-disabled');
+          current.classList.add(params.disabledClassName);
         }
       });
     }
@@ -132,16 +238,14 @@ function setMenuListener() {
 
 setMenuListener();
 
-const multiDefault = () => {
-  const elements = document.querySelectorAll('.genre');
-  elements.forEach(el => {
-    const choices = new Choices(el, {
-      searchEnabled: false,
-    });
-  });
-}
+(() => {
+  const checkBtn = document.querySelector('.js-check-heading');
 
-multiDefault();
+  checkBtn.addEventListener('click', function () {
+      this.classList.toggle('is-active-3');
+  });
+})();
+
 
 const ArtDefault = () => {
   const element = document.querySelector('.art');
@@ -152,8 +256,18 @@ const ArtDefault = () => {
 
 ArtDefault();
 
+const multiDefault = () => {
+  const elements = document.querySelectorAll('.art1');
+  elements.forEach(el => {
+    const choices1 = new Choices(el, {
+      searchEnabled: false,
+    });
+  });
+}
+
+multiDefault();
+
 $(".accordion").accordion();
-$(".accordion1").accordion();
 
 document.querySelectorAll('.catalog-title-btn').forEach(function(tabsBtn) {
   tabsBtn.addEventListener('click', function(e){
@@ -183,7 +297,7 @@ document.querySelector(`[data-target = ${painter}]`).classList.add('artist-conta
   });
 });
 
-new JustValidate('form', {
+new JustValidate('.form-1', {
   rules: {
     name: {
       required:true,
@@ -232,13 +346,10 @@ function init(){
     // Размеры метки.
     iconImageSize: [20, 20],
     iconContentLayout: MyIconContentLayout
-});
-    myMap.geoObjects.add(myPlacemark);
-  };
-
-  window.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#burger').addEventListener('click', function() {
-      document.querySelector('#menu').classList.toggle('is-active-1')
-    })
   });
+    myMap.geoObjects.add(myPlacemark);
+};
 
+tippy('.js-tooltip', {
+  theme: 'violet',
+});
