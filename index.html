@@ -15,7 +15,14 @@
     <header class="header">
         <div class="container header-container flex">
             <div class="header-burger-nav flex">
-              <button class="search-btn btn-reset" aria-label="Поиск"></button>
+              <div class="header-top-searh flex">
+                  <label for="search-1">
+                    <div class="header-search-container flex">
+                    <input type="search" class="header-top-search-input header-search-input" placeholder="Поиск по сайту" data-target="open">
+                    <button type="submit" class="header-top-search-button search-btn btn-reset" aria-label="Поиск" data-srch="open"></button>
+                  </div>
+                  </label>
+                </div>
               <a class="header-logo-link">
                 <img class="logo" src="img/Лого.svg" alt="Blanchard-художественная галерея">
               </a>
@@ -25,25 +32,25 @@
                 <div  class="header-nav-burger-menu flex" id="menu">
                   <ul class="header-nav-list list-reset flex">
                     <li class="header-nav-list-item">
-                        <a href="#about-us">О нас</a>
+                        <a class="header-nav-link" href="#about-us">О нас</a>
                     </li>
                     <li class="header-nav-list-item">
-                        <a href="#galery">Галерея</a>
+                        <a class="header-nav-link" href="#galery">Галерея</a>
                     </li>
                     <li class="header-nav-list-item">
-                        <a href="#katalog">Каталог</a>
+                        <a class="header-nav-link" href="#katalog">Каталог</a>
                     </li>
                     <li class="header-nav-list-item">
-                        <a href="#events">События</a>
+                        <a class="header-nav-link" href="#events">События</a>
+                    </li>
+                    <!--<li class="header-nav-list-item">
+                        <a class="header-nav-link" href="#editions">Издания</a>
+                    </li>-->
+                    <li class="header-nav-list-item">
+                        <a class="header-nav-link" href="#projects">Проекты</a>
                     </li>
                     <li class="header-nav-list-item">
-                        <a href="#editions">Издания</a>
-                    </li>
-                    <li class="header-nav-list-item">
-                        <a href="#projects">Проекты</a>
-                    </li>
-                    <li class="header-nav-list-item">
-                        <a href="#contacts">Контакты</a>
+                        <a class="header-nav-link" href="#contacts">Контакты</a>
                     </li>
                   </ul>
                   <a href="#" class="header-login-link">Войти</a>
@@ -122,8 +129,8 @@
                     </ul>
                 </nav>
                 <div class="flex">
-                <form action="http://jsonplaceholder.typecode.com/posts" method="POST" class="form" id="search-1">
-                  <label for="search-1">
+                <form action="http://jsonplaceholder.typecode.com/posts" method="POST" class="form" id="search-2">
+                  <label for="search-2">
                     <div class="header-search-container"></div>
                     <input type="search" class="header-search-input" placeholder="Поиск по сайту">
                     <input type="submit" class="header-search-button" aria-label="Поиск">
@@ -134,7 +141,7 @@
             </div>
     </header>
     <main class="main">
-        <section class="section hero-section" id="hero">
+       <section class="section hero-section" id="hero">
             <div class="container hero-container">
                 <div class="hero-slider-container">
                   <div class="swiper1">
@@ -151,9 +158,9 @@
                 </div>
                 <div class="hero-content-container">
                     <div class="hero-content">
-                        <h1 class="hero-container-tittle">Прикоснитесь к прекрасному</h1>
+                        <h1 class="hero-container-title">Прикоснитесь к прекрасному</h1>
                         <p class="hero-container-descr">Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
-                         <a href="#" class="btn btn-reset hero-btn" aria-label="Подписаться на рассылку">Подписаться на рассылку</a>
+                         <a href="#contacts" class="btn btn-reset hero-btn" aria-label="Подписаться на рассылку">Подписаться на рассылку</a>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -170,20 +177,41 @@
             <div class="galery-select-container flex">
               <h2 class="section-title galery-title">Галерея</h2>
               <select class="art" name="art" id="art">
-                  <option value="art" selected>Живопись</option>
-                  <option value="picture">Рисунок</option>
-                  <option value="sculpture">Скульптура</option>
-                </select>
-                <select class="art1" name="art">
-                  <option value="art" selected>Автор</option>
-                  <option value="picture">Направление</option>
-                  <option value="sculpture">Техника</option>
-                </select>
+                <option value="art" selected>Живопись</option>
+                <option value="picture">Рисунок</option>
+                <option value="sculpture">Скульптура</option>
+              </select>
+              <div class="editions-input-checkbox-container flex">
+                <label class="editions-checkbox-label" for="check">
+                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check">
+                  <span class="checkbox-content">
+                    <span class="visual-check"></span>
+                    <span class="check-text">XIX век</span>
+                    <span class="close-icon"></span>
+                  </span>
+                </label>
+                <label class="editions-checkbox-label" for="check1">
+                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check1">
+                  <span class="checkbox-content">
+                    <span class="visual-check"></span>
+                    <span class="check-text">XX век</span>
+                    <span class="close-icon"></span>
+                  </span>
+                </label>
+                <label class="editions-checkbox-label" for="check2">
+                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check2">
+                  <span class="checkbox-content">
+                    <span class="visual-check"></span>
+                    <span class="check-text">Cовременность</span>
+                    <span class="close-icon"></span>
+                  </span>
+                </label>
+              </div>
             </div>
             <div class="galery-slider-container">
                       <div class="swiper2">
                         <div class="swiper-wrapper">
-                          <button class="swiper-slide swpr-slde btn-reset slide-1">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="ones">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery1.jpg" media="(min-width: 1025px)">
@@ -191,15 +219,15 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-2">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="two">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery2.jpg" media="(min-width: 1025px)">
-                                <img src="img/galery-1-2.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery-1-2.jpg" class="galery-slider-img" alt="three">
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-3">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="three">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery3.jpg" media="(min-width: 1025px)">
@@ -207,7 +235,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-4">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="four">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery4.jpg" media="(min-width: 1025px)">
@@ -215,7 +243,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-5">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="five">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery5.jpg" media="(min-width: 1025px)">
@@ -223,7 +251,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-6">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="six">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery6.jpg" media="(min-width: 1025px)">
@@ -231,7 +259,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-7">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="seven">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery7.jpg" media="(min-width: 1025px)">
@@ -239,7 +267,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-8">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="eight">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery8.jpg" media="(min-width: 1025px)">
@@ -247,7 +275,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-9">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="nine">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery9.jpg" media="(min-width: 1025px)">
@@ -255,7 +283,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-10">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="ten">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery10.jpg" media="(min-width: 1025px)">
@@ -263,7 +291,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-11">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="elevene">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery11.jpg" media="(min-width: 1025px)">
@@ -271,7 +299,7 @@
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset slide-12">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="twelve">
                             <div class="swiper-slide-container">
                               <picture>
                                 <source srcset="img/galery12.jpg" media="(min-width: 1025px)">
@@ -280,11 +308,11 @@
                               </div>
                           </button>
                         </div>
-                      <div class="swiper-button-prev"></div>
-                      <div class="swiper-button-next"></div>
                     </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="galery-pagination"></div>
+                    <div class="swiper-button-next"></div>
             </div>
-            <p class="galery-select-container-descr">Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a href="">авторизуйтесь</a>, либо воспользуйтесь лицензией. </p>
           </div>
         </section>
         <section class="section katalog-section" id="katalog">
@@ -344,9 +372,8 @@
                             <button class="accordeon-btn btn-reset flex">
                                 <span class="catalog-years-item flex">C 1400 по 1499 гг.</span>
                                 <span class="catalog-years-item-img">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="accordeon-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                        <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z"/>
                                         <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
                                         </svg>
                                 </span>
@@ -385,9 +412,8 @@
                             <button class="accordeon-btn btn-reset flex">
                                 <span class="catalog-years-item flex">C 1500 по 1599 гг.</span>
                                 <span class="catalog-years-item-img">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="accordeon-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                        <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z"/>
                                         <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
                                     </svg>
                                 </span>
@@ -400,11 +426,10 @@
                         </li>
                         <li class="catalog-years-nav-list-item flex">
                             <button class="accordeon-btn btn-reset flex">
-                                <span class="catalog-years-item flex">C 1600 по 1699 гг.</span>
+                                <span class="catalog-years-item">C 1600 по 1699 гг.</span>
                                 <span class="catalog-years-item-img">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="accordeon-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                        <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z"/>
                                         <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
                                     </svg>
                                 </span>
@@ -419,9 +444,8 @@
                             <button class="accordeon-btn btn-reset flex">
                                 <span class="catalog-years-item flex">C 1700 по 1799 гг.</span>
                                 <span class="catalog-years-item-img">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="accordeon-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                        <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z"/>
                                         <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
                                     </svg>
                                 </span>
@@ -436,9 +460,8 @@
                             <button class="accordeon-btn btn-reset flex">
                                 <span class="catalog-years-item flex">C 1800 по 1899 гг.</span>
                                 <span class="catalog-years-item-img">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="accordeon-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                        <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z"/>
                                         <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
                                     </svg>
                                 </span>
@@ -453,9 +476,8 @@
                             <button class="accordeon-btn btn-reset flex">
                                 <span class="catalog-years-item flex">C 1900 по 1999 гг.</span>
                                 <span class="catalog-years-item-img">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="accordeon-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                        <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z"/>
                                         <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
                                     </svg>
                                 </span>
@@ -470,9 +492,8 @@
                             <button class="accordeon-btn btn-reset flex">
                                 <span class="catalog-years-item flex">C 2000 г.</span>
                                 <span class="catalog-years-item-img">
-                                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="accordeon-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                        <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z"/>
                                         <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
                                     </svg>
                                 </span>
@@ -492,181 +513,176 @@
             <h2 class="section-title events-title">События</h2>
             <div class="swiper5">
               <div class="swiper-wrapper events-wrapper">
-                  <div class="events-list-item-slide swiper-slide flex" id="event1">
+                  <div class="events-list-item-slide swiper-slide flex">
+                    <img class="events-item-img" src="img/event1.jpg" alt="">
                     <div class="events-list-item-container flex">
+                      <div class="event-item-location">
+                        <p class="event-location">Музей им. Щусева</p>
+                        <p class="event-date"> с 20 марта по 30 апреля</p>
+                      </div>
                       <h3 class="events-list-item-title">Книжная гравюра в живом восприятии</h3>
                       <p class="events-list-item-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
-                      <button class="btn-reset events-list-item-btn">Подробнее</button>
-                    </div>
-                    <div class="event-item-location">
-                      <p class="event-location">Музей им. Щусева</p>
-                      <p class="event-date"> с 20 марта по 30 апреля</p>
+                      <a href="#" class="events-list-item-btn">Подробнее</a>
                     </div>
                   </div>
-                  <div class="events-list-item-slide swiper-slide flex" id="event2">
+                  <div class="events-list-item-slide swiper-slide flex">
+                    <img class="events-item-img" src="img/event2.jpg" alt="">
                     <div class="events-list-item-container flex">
+                      <div class="event-item-location">
+                        <p class="event-location">ММОМА</p>
+                        <p class="event-date">24 марта 19:00</p>
+                      </div>
                       <h3 class="events-list-item-title">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
                       <p class="events-list-item-descr">Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.</p>
-                    <button class="btn-reset events-list-item-btn">Подробнее</button>
+                    <a href="#" class="events-list-item-btn">Подробнее</a>
                    </div>
-                    <div class="event-item-location">
-                      <p class="event-location">ММОМА</p>
-                      <p class="event-date">24 марта 19:00</p>
-                    </div>
                   </div>
-                  <div class="events-list-item-slide swiper-slide flex" id="event3">
+                  <div class="events-list-item-slide swiper-slide flex">
+                    <img class="events-item-img" src="img/event3.jpg" alt="">
                     <div class="events-list-item-container flex">
+                      <div class="event-item-location">
+                        <p class="event-location">Еврейский музей</p>
+                        <p class="event-date">с 31 марта по 21 апреля</p>
+                      </div>
                       <h3 class="events-list-item-title">Выставка «Формация 2020»</h3>
                       <p class="events-list-item-descr">Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений.</p>
-                    <button class="btn-reset events-list-item-btn">Подробнее</button>
+                    <a href="#" class="events-list-item-btn">Подробнее</a>
                    </div>
-                    <div class="event-item-location">
-                      <p class="event-location">Еврейский музей</p>
-                      <p class="event-date">с 31 марта по 21 апреля</p>
-                    </div>
                   </div>
-                  <div class="events-list-item-slide swiper-slide flex" id="event4">
+                  <div class="events-list-item-slide swiper-slide flex">
+                    <img class="events-item-img" src="img/event4.jpg" alt="">
                     <div class="events-list-item-container flex">
+                      <div class="event-item-location">
+                        <p class="event-location">Третьяковка на Крымском валу</p>
+                        <p class="event-date"> с 30 марта по 30 апреля</p>
+                      </div>
                       <h3 class="events-list-item-title">XXIV Международная биеннале молодого искусства</h3>
                       <p class="events-list-item-descr">Внезапно, реплицированные с зарубежных источников, современные исследования.</p>
-                    <button class="btn-reset events-list-item-btn">Подробнее</button>
+                    <a href="#" class="events-list-item-btn">Подробнее</a>
                    </div>
-                    <div class="event-item-location">
-                      <p class="event-location">Третьяковка на Крымском валу</p>
-                      <p class="event-date"> с 30 марта по 30 апреля</p>
-                    </div>
                   </div>
-                  <div class="events-list-item-slide swiper-slide flex" id="event5">
+                  <div class="events-list-item-slide swiper-slide flex">
+                    <img class="events-item-img" src="img/event5.jpg" alt="">
                     <div class="events-list-item-container flex">
-                      <h3 class="events-list-item-title">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
-                      <p class="events-list-item-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
-                    <button class="btn-reset events-list-item-btn">Подробнее</button>
-                     </div>
                       <div class="event-item-location">
                         <p class="event-location">ММАМ</p>
                         <p class="event-date">с 8 апреля по 20 мая</p>
                       </div>
+                      <h3 class="events-list-item-title">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
+                      <p class="events-list-item-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
+                    <a href="#" class="events-list-item-btn">Подробнее</a>
+                     </div>
                     </div>
                 </div>
             </div>
+            <div class="events-btn-next"></div>
+            <div class="events-btn-prev"></div>
             <div class="events-pagination"></div>
         </div>
         </section>
-        <section class="section editions-section" id="editions">
+        <!--<section class="section editions-section" id="editions">
           <div class="container editions-container">
               <h2 class="section-title editions-title">Издания</h2>
               <div class="editions-content-container flex">
-                  <div class="editions-input-container">
+                <div class="editions-input-container">
                   <div class="editions-input-checkbox-container flex">
-                      <button class=" btn-reset checkbox-title-btn js-check-heading flex">Категории</button>
-                              <label class="editions-checkbox-label" for="check">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Бестселлеры</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-                              <label class="editions-checkbox-label" for="check1">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check1">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Искусство</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-
-                              <label class="editions-checkbox-label" for="check2">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check2">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Архитектура</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-
-                              <label class="editions-checkbox-label" for="check3">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check3">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Дизайн</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-                              <label class="editions-checkbox-label" for="check4">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check4">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Мода</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-                              <label class="editions-checkbox-label" for="check5">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check5">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Детям</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-                              <label class="editions-checkbox-label" for="check6">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check6">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Художественная литература</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-                              <label class="editions-checkbox-label" for="check7">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check7">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Публицистика</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-                              <label class="editions-checkbox-label" for="check8">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check8">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Путеводители</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-                              <label class="editions-checkbox-label" for="check9">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check9">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Философия</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
-
-                              <label class="editions-checkbox-label" for="check10">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check10">
-                                  <span class="checkbox-content">
-                                     <span class="visual-check"></span>
-                                     <span class="check-text">Учебная литература</span>
-                                    <span class="close-icon"></span>
-                                    </span>
-                                  </label>
-
-                              <label class="editions-checkbox-label" for="check11">
-                                  <input type="checkbox" class="checkbox visually-hidden" name="check" id="check11">
-                                  <span class="checkbox-content">
-                                    <span class="visual-check"></span>
-                                    <span class="check-text">Журналы и газеты</span>
-                                    <span class="close-icon"></span>
-                                  </span>
-                                </label>
+                    <button class=" btn-reset checkbox-title-btn js-check-heading flex">Категории</button>
+                    <label class="editions-checkbox-label" for="check">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Бестселлеры</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check1">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check1">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Искусство</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check2">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check2">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Архитектура</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check3">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check3">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Дизайн</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check4">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check4">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Мода</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check5">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check5">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Детям</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check6">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check6">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Художественная литература</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check7">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check7">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Публицистика</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check8">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check8">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Путеводители</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check9">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check9">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Философия</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check10">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check10">
+                      <span class="checkbox-content">
+                         <span class="visual-check"></span>
+                         <span class="check-text">Учебная литература</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
+                    <label class="editions-checkbox-label" for="check11">
+                      <input type="checkbox" class="checkbox visually-hidden" name="check" id="check11">
+                      <span class="checkbox-content">
+                        <span class="visual-check"></span>
+                        <span class="check-text">Журналы и газеты</span>
+                        <span class="close-icon"></span>
+                      </span>
+                    </label>
                   </div>
                       <div class="edition-price-container">
                           <h3 class="editions-checkbox-title">Цена</h3>
@@ -674,19 +690,18 @@
                               <span class="price-descr">От</span><input type="text" class="price-input" placeholder="50"><span class="price-descr">до</span><input type="text" class="price-input" placeholder="25000"><span class="price-descr">руб.</span>
                           </div>
                       </div>
-                  </div>
-                  <div class="editions-slider-container js-slider-main">
-                      <div class="swiper3 js-slider">
+                </div>
+                <div class="editions-slider-container js-slider-main">
+                    <div class="swiper3 js-slider">
                           <div class="swiper-wrapper js-slides-wrap editions-wrapper">
-                              <!-- слайды -->
                               <div class="swiper-slide swiper-slide-1 swpr-slide">
                                   <div class="edition-item-descr-container flex">
                                       <img src="img/edition1.jpg" alt="" class="edition-title-img">
-                                      <div class="editon-content-container flex">
+                                      <div class="edition-content-container flex">
                                           <div class="edition-descr-container flex">
                                               <p class="edition-name">Исккусство цвета</p>
                                               <p class="edition-wrighter">Иттен, Иоханнес</p>
-                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                              <button class="edition-buy-btn btn-reset">Заказать</button>
                                           </div>
                                           <div class="price">620руб</div>
                                       </div>
@@ -695,11 +710,11 @@
                               <div class="swiper-slide swiper-slide-2 swpr-slide">
                                   <div class="edition-item-descr-container flex">
                                       <img src="img/edition2.jpg" alt="" class="edition-title-img">
-                                      <div class="editon-content-container flex">
+                                      <div class="edition-content-container flex">
                                           <div class="edition-descr-container flex">
                                               <p class="edition-name">Типографика</p>
                                               <p class="edition-wrighter">Рудер, Эмиль</p>
-                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                              <button class="edition-buy-btn btn-reset">Заказать</button>
                                           </div>
                                           <div class="price">2450руб.</div>
                                       </div>
@@ -708,11 +723,11 @@
                               <div class="swiper-slide swiper-slide-3 swpr-slide">
                                   <div class="edition-item-descr-container flex">
                                       <img src="img/edition3.jpg" alt="" class="edition-title-img">
-                                      <div class="editon-content-container flex">
+                                      <div class="edition-content-container flex">
                                           <div class="edition-descr-container flex">
                                               <p class="edition-name">Книга про буквы</p>
                                               <p class="edition-wrighter">Гордон, юрий</p>
-                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                              <button class="edition-buy-btn btn-reset">Заказать</button>
                                           </div>
                                           <div class="price">2200руб.</div>
                                       </div>
@@ -721,11 +736,11 @@
                               <div class="swiper-slide swiper-slide-4 swpr-slide">
                                   <div class="edition-item-descr-container flex">
                                       <img src="img/edition4.jpg" alt="" class="edition-title-img">
-                                      <div class="editon-content-container flex">
+                                      <div class="edition-content-container flex">
                                           <div class="edition-descr-container flex">
                                               <p class="edition-name">Николай Ильин</p>
-                                              <p class="edition-wrighter">Кричевский, Владимир</p>
-                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                              <p class="edition-wrighter">Кричевский,&nbsp;Владимир</p>
+                                              <button class="edition-buy-btn btn-reset">Заказать</button>
                                           </div>
                                           <div class="price">1 100руб</div>
                                       </div>
@@ -734,11 +749,11 @@
                               <div class="swiper-slide swiper-slide-5 swpr-slide">
                                   <div class="edition-item-descr-container flex">
                                       <img src="img/edition5.jpg" alt="" class="edition-title-img">
-                                      <div class="editon-content-container flex">
+                                      <div class="edition-content-container flex">
                                           <div class="edition-descr-container flex">
                                               <p class="edition-name">Модульные&nbsp;сетки&nbsp;в&nbsp;граф...</p>
-                                              <p class="edition-wrighter">Мюллер-Брокманн, Йозеф</p>
-                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                              <p class="edition-wrighter">Мюллер&nbsp;-&nbsp;Брокманн,&nbsp;Йозеф</p>
+                                              <button class="edition-buy-btn btn-reset">Заказать</button>
                                           </div>
                                           <div class="price">1 450руб</div>
                                       </div>
@@ -747,11 +762,11 @@
                               <div class="swiper-slide swiper-slide-6 swpr-slide">
                                   <div class="edition-item-descr-container flex">
                                       <img src="img/edition7.jpg" alt="" class="edition-title-img">
-                                      <div class="editon-content-container flex">
+                                      <div class="edition-content-container flex">
                                           <div class="edition-descr-container flex">
                                               <p class="edition-name">Эволюция&nbsp;графических&nbsp;ст...</p>
                                               <p class="edition-wrighter">Хеллер, Чваст</p>
-                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                              <button class="edition-buy-btn btn-reset">Заказать</button>
                                           </div>
                                           <div class="price">3 200руб</div>
                                       </div>
@@ -760,22 +775,23 @@
                               <div class="swiper-slide swiper-slide-7 swpr-slide">
                                   <div class="edition-item-descr-container flex">
                                       <img src="img/edition8.jpg" alt="" class="edition-title-img">
-                                      <div class="editon-content-container flex">
+                                      <div class="edition-content-container flex">
                                           <div class="edition-descr-container flex">
-                                              <p class="edition-name">Искусство&nbsp;и&nbsp;визуальное в...</p>
+                                              <p class="edition-name">Искусство&nbsp;и&nbsp;визуальное&nbsp;в...</p>
                                               <p class="edition-wrighter">Арнхейм, Рудольф</p>
-                                              <button class="editon-buy-btn btn-reset">Заказать</button>
+                                              <button class="edition-buy-btn btn-reset">Заказать</button>
                                           </div>
                                           <div class="price">2 200руб</div>
                                       </div>
                                   </div>
                               </div>
                           </div>
-                      </div>
-                  </div>
-              </div>
+                    </div>
+                    <div class="editions-pagination"></div>
+                </div>
+            </div>
           </div>
-      </section>
+      </section> -->
         <section class="section projects-section" id="projects">
             <div class="container projects-container">
                 <h2 class="section-title projects-container-title">Проекты</h2>
@@ -784,40 +800,40 @@
                     <button class="projects-tooltip-btn btn-reset js-tooltip" data-tippy-content="Пример современных тенденций - современная методология разработки">i</button>&nbsp;обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены&nbsp;
                     <button class="projects-tooltip-btn btn-reset js-tooltip" data-tippy-content="Приятно, граждане, наблюдать, как сделанные на базе аналитики выводы вызывают у вас эмоции">i</button>&nbsp;исключительно в разрезе маркетинговых и финансовых&nbsp;
                     <button class="projects-tooltip-btn btn-reset js-tooltip" data-tippy-content="В стремлении повысить качество">i</button>&nbsp;предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее:&nbsp;
-                    <a href="" class="projects-descr-link">blanchard-art.ru/projects/about</a>
+                    <a href="#" class="projects-descr-link">blanchard-art.ru/projects/about</a>
                 </p>
                 </div>
                 <h3 class="projects-container-partner-title">Партнеры проектов</h3>
                 <div class="partners-slider-container">
                     <div class="partner-slider-navigation-container">
                     <div class="swiper4 flex">
-                        <div class="swiper-wrapper swiper-wrapper4">
+                        <div class="swiper-wrapper partners-wrapper">
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner1.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner1.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner2.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner2.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner3.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner3.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner4.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner4.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner5.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner5.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner6.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner6.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
                                 <a href="#" class="partners-item-link"><img src="img/partner7.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner8.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner8.png" alt="" class="partners-item-img"></a>
                             </div>
                             <div class="swiper-slide swpr-sld">
-                                <a href="#" class="partners-item-link"><img src="img/partner9.png" alt="" class="partners-item-img"></a>
+                                <a class="partners-item-link"><img src="img/partner9.png" alt="" class="partners-item-img"></a>
                             </div>
                         </div>
                     </div>
@@ -845,14 +861,10 @@
                     <h4 class="contacts-form-title">Связаться в один клик</h4>
                     <ul class="social-links-list list-reset flex">
                         <li class="social-links-item">
-                            <div class="social-link-container">
-                                <a href="#" class="item-social-link item-social-link-1"></a>
-                            </div>
+                            <a href="#" class="item-social-link item-social-link-1"></a>
                         </li>
                         <li class="social-links-item">
-                            <div class="social-link-container">
-                                <a href="#" class="item-social-link item-social-link-2"></a>
-                            </div>
+                            <a href="#" class="item-social-link item-social-link-2"></a>
                         </li>
                     </ul>
                 </div>
@@ -865,12 +877,24 @@
                 </div>
             </div>
         </section>
+        <div class="picture-description-container" data-target="ones">
+          <div class="pict-descr-container flex">
+            <img src="img/galery1.jpg" alt="Казимир Малевич-Женщина с граблями">
+            <div class="decr-paint-container flex">
+              <span class="painter-name">Казимир Малевич</span>
+              <span class="picture-name">"Женщина с граблями"</span>
+              <span class="picture-years">1931-1932</span>
+              <p class="picture-descr">Картина из второй серии крестьянского цикла работ Казимира Малевича. Художник принялся за её создание в 1930-1931 годах, после того, как первый цикл был утерян после Берлинской и Варшавской выставок в 1927 году.</p>
+            </div>
+            <button class="btn-reset clother-btn"></button>
+          </div>
+        </div>
     </main>
    <footer class="footer">
         <div class="container footer-container flex">
-            <div class="header-logo">
-                <a href="" class="footer-main-link">
-                    <img src="img/Лого.svg" alt="Blanchard-художественная галерея">
+            <div class="footer-logo">
+                <a href="#" class="footer-main-link">
+                    <img class="footer-logo-img" src="img/Лого.svg" alt="Blanchard-художественная галерея">
                 </a>
             </div>
             <ul class="footer-social-links-list list-reset flex">
@@ -897,7 +921,7 @@
     <script src="js/choices.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
     <script src="js/just-validate.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
