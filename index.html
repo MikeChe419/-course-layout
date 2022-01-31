@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Blanchard - художественная галерея</title>
 </head>
-<body>
+  <body>
     <header class="header">
         <div class="container header-container flex">
             <div class="header-burger-nav flex">
@@ -59,8 +59,8 @@
         </div>
         <div class="header-genre-nav-container flex">
           <div class="container header-bottom-container flex">
-                <nav class="hero-genre-nav flex">
-                    <ul class="hero-genre-nav-list list-reset flex">
+            <nav class="hero-genre-nav flex">
+                    <ul class="header-genre-nav-list list-reset flex">
                         <li class="genre-nav-list-item">
                            <button class="btn-reset header-genre-btn js-header-dropdown-btn" data-genres="realism">Реализм</button>
                            <div class="dropdown-artists-container js-header-drop" data-target="realism">
@@ -127,35 +127,34 @@
                           </div>
                         </li>
                     </ul>
-                </nav>
-                <div class="flex">
-                <form action="http://jsonplaceholder.typecode.com/posts" method="POST" class="form" id="search-2">
+            </nav>
+            <form method="POST" class="form" id="search-2">
                   <label for="search-2">
-                    <div class="header-search-container"></div>
-                    <input type="search" class="header-search-input" placeholder="Поиск по сайту">
-                    <input type="submit" class="header-search-button" aria-label="Поиск">
+                    <div class="header-search-container flex">
+                      <input type="search" class="header-search-input" placeholder="Поиск по сайту">
+                      <input type="submit" class="header-search-button" aria-label="Поиск">
+                    </div>
                   </label>
-                </form>
-                </div>
+            </form>
+          </div>
               </div>
-            </div>
     </header>
-    <div class="picture-description-container" data-target="ones">
-      <div class="pict-descr-container flex">
-        <img src="img/galery1.jpg" alt="Казимир Малевич-Женщина с граблями">
-        <div class="decr-paint-container flex">
-          <span class="painter-name">Казимир Малевич</span>
-          <span class="picture-name">"Женщина с граблями"</span>
-          <span class="picture-years">1931-1932</span>
-          <p class="picture-descr">Картина из второй серии крестьянского цикла работ Казимира Малевича. Художник принялся за её создание в 1930-1931 годах, после того, как первый цикл был утерян после Берлинской и Варшавской выставок в 1927 году.</p>
-        </div>
-        <button class="btn-reset clother-btn"></button>
-      </div>
-    </div>
     <main class="main">
-       <section class="section hero-section" id="hero">
+      <div class="galery-modal-container" data-target="second">
+        <div class="pict-descr-container flex">
+          <img class="modal-img" src="img/galery211.jpg" alt="Казимир Малевич-Женщина с граблями">
+          <div class="decr-paint-container flex">
+            <span class="painter-name">Казимир Малевич</span>
+            <span class="picture-name">"Женщина с граблями"</span>
+            <span class="picture-years">1931-1932</span>
+            <p class="picture-descr">Картина из второй серии крестьянского цикла работ Казимира Малевича. Художник принялся за её создание в 1930-1931 годах, после того, как первый цикл был утерян после Берлинской и Варшавской выставок в 1927 году.</p>
+          </div>
+          <button class="btn-reset clother-btn"></button>
+        </div>
+      </div>
+      <section class="section hero-section" id="hero">
         <div class="hero-slider-container">
-        <div class="swiper1">
+          <div class="swiper1">
           <div class="swiper-wrapper">
             <div class="swiper-slide slide1">
             </div>
@@ -167,23 +166,20 @@
           </div>
           </div>
             <div class="container hero-container">
-                <div class="hero-content-container">
-                    <div class="hero-content">
-                        <h1 class="hero-container-title">Прикоснитесь к прекрасному</h1>
-                        <p class="hero-container-descr">Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
-                         <a href="#contacts" class="btn btn-reset hero-btn" aria-label="Подписаться на рассылку">Подписаться на рассылку</a>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
+              <div class="hero-content">
+                <h1 class="hero-container-title">Прикоснитесь к прекрасному</h1>
+                <p class="hero-container-descr">Мы&nbsp;вынуждены отталкиваться от&nbsp;того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
+                <a href="#contacts" class="btn btn-reset hero-link" aria-label="Подписаться на рассылку">Подписаться на рассылку</a>
+              </div>
             </div>
-        </section>
-        <section class="section about-us-section" id="about-us">
+      </section>
+      <section class="section about-us-section" id="about-us">
             <div class="container about-us-container">
                 <h2 class="section-title about-us-title">О нас</h2>
                 <p class="about-us-descr">Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и&nbsp;ресурсов. Не&nbsp;следует, однако, забывать, что высококачественный прототип будущего проекта влечет за&nbsp;собой процесс внедрения и&nbsp;модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в&nbsp;производственный план целого ряда внеочередных мероприятий с&nbsp;учётом комплекса распределения внутренних резервов и&nbsp;ресурсов. В&nbsp;рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а&nbsp;значит, должны быть разоблачены.</p>
             </div>
-        </section>
-        <section class="section galery-section" id="galery">
+      </section>
+      <section class="section galery-section" id="galery">
           <div class="container galery-container flex">
             <div class="galery-select-container flex">
               <h2 class="section-title galery-title">Галерея</h2>
@@ -222,99 +218,111 @@
             <div class="galery-slider-container">
                       <div class="swiper2">
                         <div class="swiper-wrapper">
-                          <button class="swiper-slide swpr-slde btn-reset" data-picture="ones">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="first">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery1.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery1.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-1.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery01.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset" data-picture="two">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="second">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery2.jpg" media="(min-width: 1025px)">
-                                <img src="img/galery-1-2.jpg" class="galery-slider-img" alt="three">
+                                <source srcset="img/galery2.jpg" media="(min-widh: 576px max-width: 1367px)">
+                                <img src="img/galery-1-2.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery02.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
-                          <button class="swiper-slide swpr-slde btn-reset" data-picture="three">
+                          <button class="swiper-slide swpr-slde btn-reset" data-picture="third">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery3.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery3.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-3.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery03.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="four">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery4.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery4.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-4.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery04.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="five">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery5.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery5.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-5.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery05.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="six">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery6.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery6.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-6.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery06.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="seven">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery7.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery7.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-7.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery07.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="eight">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery8.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery8.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-8.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery08.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="nine">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery9.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery9.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-9.jpg" class="galery-slider-img" alt="">
+                                <img src="img/galery09.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="ten">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery10.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery10.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-10.jpg" class="galery-slider-img"  alt="">
+                                <img src="img/galery010.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="elevene">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery11.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery11.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-11.jpg" class="galery-slider-img"  alt="">
+                                <img src="img/galery=011.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
                           <button class="swiper-slide swpr-slde btn-reset" data-picture="twelve">
                             <div class="swiper-slide-container">
                               <picture>
-                                <source srcset="img/galery12.jpg" media="(min-width: 1025px)">
+                                <source srcset="img/galery12.jpg" media="(min-widh: 576px max-width: 1367px)">
                                 <img src="img/galery-1-12.jpg" class="galery-slider-img"  alt="">
+                                <img src="img/galery012.jpg" class="galery-slider-img"  alt="">
                               </picture>
                               </div>
                           </button>
@@ -325,8 +333,8 @@
                     <div class="swiper-button-next"></div>
             </div>
           </div>
-        </section>
-        <section class="section katalog-section" id="katalog">
+      </section>
+      <section class="section katalog-section" id="katalog">
             <div class="container catalog-container">
                 <div class="catalog-title-container flex">
                     <h2 class="section-title catalog-title">Каталог</h2>
@@ -390,7 +398,7 @@
                                 </span>
                             </button>
                             <div class="artists-name-container flex">
-                            <ul class="artists-names-list flex list-reset">
+                            <ul class="artists-names-list list-reset">
                                 <li class="artists-names-list-item"><button class="btn-reset js-painter
                                   " data-painter="another">Бенедетто ди Биндо </button></li>
                                 <li class="artists-names-list-item"><button class="btn-reset js-painter" data-painter="another">Бергоньоне, Амброджо</button></li>
@@ -430,9 +438,12 @@
                                 </span>
                             </button>
                             <div class="empty-accordeon-container flex">
+                              <img class="empty-img" src="img/empy-img.jpg" alt="Здесь пока пусто">
+                              <div class="empty-descr-container">
                                 <h3 class="empty-accordeon-container-title">Здесь пока пусто</h3>
                                 <p class="empty-accordeon-descr">А в галерее вы всегда можете найти что-то интересное для себя</p>
                                 <a href="#galery" class="galery-link">В галерею</a>
+                              </div>
                             </div>
                         </li>
                         <li class="catalog-years-nav-list-item flex">
@@ -445,11 +456,6 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="empty-accordeon-container flex">
-                                <h3 class="empty-accordeon-container-title">Здесь пока пусто</h3>
-                                <p class="empty-accordeon-descr">А в галерее вы всегда можете найти что-то интересное для себя</p>
-                                <a href="#galery" class="galery-link">В галерею</a>
-                            </div>
                         </li>
                         <li class="catalog-years-nav-list-item flex">
                             <button class="accordeon-btn btn-reset flex">
@@ -461,11 +467,6 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="empty-accordeon-container flex">
-                                <h3 class="empty-accordeon-container-title">Здесь пока пусто</h3>
-                                <p class="empty-accordeon-descr">А в галерее вы всегда можете найти что-то интересное для себя</p>
-                                <a href="#galery" class="galery-link">В галерею</a>
-                            </div>
                         </li>
                         <li class="catalog-years-nav-list-item flex">
                             <button class="accordeon-btn btn-reset flex">
@@ -477,11 +478,6 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="empty-accordeon-container flex">
-                                <h3 class="empty-accordeon-container-title">Здесь пока пусто</h3>
-                                <p class="empty-accordeon-descr">А в галерее вы всегда можете найти что-то интересное для себя</p>
-                                <a href="#galery" class="galery-link">В галерею</a>
-                            </div>
                         </li>
                         <li class="catalog-years-nav-list-item flex">
                             <button class="accordeon-btn btn-reset flex">
@@ -493,11 +489,6 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="empty-accordeon-container flex">
-                                <h3 class="empty-accordeon-container-title">Здесь пока пусто</h3>
-                                <p class="empty-accordeon-descr">А в галерее вы всегда можете найти что-то интересное для себя</p>
-                                <a href="#galery" class="galery-link">В галерею</a>
-                            </div>
                         </li>
                         <li class="catalog-years-nav-list-item flex">
                             <button class="accordeon-btn btn-reset flex">
@@ -509,18 +500,13 @@
                                     </svg>
                                 </span>
                             </button>
-                            <div class="empty-accordeon-container flex">
-                                <h3 class="empty-accordeon-container-title">Здесь пока пусто</h3>
-                                <p class="empty-accordeon-descr">А в галерее вы всегда можете найти что-то интересное для себя</p>
-                                <a href="#galery" class="galery-link">В галерею</a>
-                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-        </section>
-        <section class="section events-section" id="events">
-          <div class="container events-container">
+      </section>
+      <section class="section events-section" id="events">
+        <div class="container events-container">
             <h2 class="section-title events-title">События</h2>
             <div class="swiper5">
               <div class="swiper-wrapper events-wrapper">
@@ -590,9 +576,9 @@
             <div class="events-btn-prev"></div>
             <div class="events-pagination"></div>
         </div>
-        </section>
-        <!--<section class="section editions-section" id="editions">
-          <div class="container editions-container">
+      </section>
+  <!--<section class="section editions-section" id="editions">
+        <div class="container editions-container">
               <h2 class="section-title editions-title">Издания</h2>
               <div class="editions-content-container flex">
                 <div class="editions-input-container">
@@ -803,7 +789,7 @@
             </div>
           </div>
       </section> -->
-        <section class="section projects-section" id="projects">
+      <section class="section projects-section" id="projects">
             <div class="container projects-container">
                 <h2 class="section-title projects-container-title">Проекты</h2>
                 <div class="projects-descr-popup-container">
@@ -853,8 +839,8 @@
                 </div>
                 </div>
             </div>
-        </section>
-        <section class="section contacts-section" id="contacts">
+      </section>
+      <section class="section contacts-section" id="contacts">
             <div class="container contacts-container">
               <h2 class="section-title contacts-container-title">Контакты</h2>
               <div class="contacts-content-container flex">
@@ -887,9 +873,9 @@
                 </div>
                 </div>
             </div>
-        </section>
+      </section>
     </main>
-   <footer class="footer">
+    <footer class="footer">
         <div class="container footer-container flex">
             <div class="footer-logo">
                 <a href="#" class="footer-main-link">
@@ -925,5 +911,5 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>
