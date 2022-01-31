@@ -54,6 +54,7 @@ img {
 }
 
 body {
+  position: relative;
   font-family: 'OpenSans', sans-serif;
   font-weight: 400;
 }
@@ -462,24 +463,9 @@ body {
 /*hero*/
 .hero-section {
   width: 100%;
+  height: 100%;
   position: relative;
   padding: 0;
-}
-
-.hero-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-slider-container {
-  position: absolute;
-  padding: 0;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .swiper1 {
@@ -513,6 +499,24 @@ body {
     transform: scaleY(1.1);
   }
 }
+
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slider-container {
+  position: absolute;
+  padding: 0;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 .hero-content-container {
   position: relative;
@@ -1888,6 +1892,45 @@ body {
   padding-right: 0;
 }
 
+.picture-description-container {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+
+.picture-description-container-active {
+  display: block;
+  z-index: 20;
+}
+
+.pict-descr-container {
+  position: relative;
+  left: 30%;
+  top: 20%;
+  width: 45%;
+  background-color: var(--color-white);
+}
+
+.decr-paint-container {
+  position: relative;
+  padding: 50px 100px;
+  flex-direction: column;
+
+}
+
+.clother-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-image: url("../img/clother-btn.png");
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+}
+
 @media (max-width: 1740px) {
   .header-nav-list {
     margin-right: 50px;
@@ -2482,38 +2525,3 @@ body {
   }
 }
 
-.picture-description-container {
-  display: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 20;
-}
-
-.picture-description-container-active {
-  display: block;
-  z-index: 20;
-}
-
-.pict-descr-container {
-  position: relative;
-  left: 50%;
-  width: 45%;
-}
-
-.decr-paint-container {
-  position: relative;
-  padding: 50px 100px;
-  flex-direction: column;
-
-}
-
-.clother-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-image: url("../img/clother-btn.png");
-  width: 14px;
-  height: 14px;
-}
