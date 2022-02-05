@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.header-top-search-button').addEventListener('click', function() {
-    document.querySelector('.header-top-search-input').classList.toggle('srch-input-active')
+    document.querySelector('.header-top-search').classList.toggle('srch-input-active')
   })
 });
 
@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.header-top-search-button').addEventListener('click', function() {
-    document.querySelector('.header-top-searh').classList.toggle('with-search')
+    document.querySelector('.header-top-search-button').classList.toggle('open-menu')
   })
 });
 
@@ -55,6 +55,8 @@ const slider2 = new Swiper ('.swiper2', {
       breakpoints: {
         676: {
           slidesPerView: 2,
+          slidesPerGroup: 2,
+          loopFillGroupWithBlank: true,
           grid: {
             rows: 2,
           },
@@ -62,6 +64,8 @@ const slider2 = new Swiper ('.swiper2', {
         },
         1368: {
           slidesPerView: 3,
+          slidesPerGroup: 3,
+          loopFillGroupWithBlank: true,
           grid: {
             rows: 2,
           },
@@ -73,8 +77,8 @@ const slider2 = new Swiper ('.swiper2', {
       autoHeight: false,
       loop: false,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.galery-btn-next',
+        prevEl: '.galery-btn-prev',
         },
       pagination: {
           el: ".galery-pagination",
@@ -120,8 +124,8 @@ const slider2 = new Swiper ('.swiper2', {
       },
     },
       navigation: {
-        nextEl: '.swiper-button-next2',
-        prevEl: '.swiper-button-prev2',
+        nextEl: '.partners-btn-next',
+        prevEl: '.partners-btn-prev',
         },
   });
 
@@ -135,9 +139,14 @@ const slider2 = new Swiper ('.swiper2', {
     breakpoints: {
       576: {
         slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 34
       },
       1024: {
         slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 27,
+        loopFillGroupWithBlank: true,
         navigation: {
           nextEl: '.events-btn-next',
           prevEl: '.events-btn-prev',
@@ -169,13 +178,13 @@ document.querySelector(`[data-target = ${picture}]`).classList.add('galery-modal
   });
 });
 
-$(".accordion").accordion();
-
 window.addEventListener('DOMContentLoaded', function() {
   document. querySelector('.clother-btn').addEventListener('click', function() {
     document.querySelector('.galery-modal-container').classList.remove('galery-modal-container-active')
   })
 });
+
+$(".accordion").accordion();
 
 document.querySelectorAll('.catalog-title-btn').forEach(function(tabsBtn) {
   tabsBtn.addEventListener('click', function(e){
@@ -184,10 +193,10 @@ document.querySelectorAll('.catalog-title-btn').forEach(function(tabsBtn) {
     document.querySelectorAll('.catalog-title-btn').forEach(function(btn) {
 btn.classList.remove('catalog-title-btn-active')});
       e.currentTarget.classList.add('catalog-title-btn-active');
-      document.querySelectorAll('.catalog-container-descr').forEach(function(tabsBtn){
-        tabsBtn.classList.remove('catalog-container-descr-active')});
+      document.querySelectorAll('.painters-container').forEach(function(tabsBtn){
+        tabsBtn.classList.remove('painters-container-active')});
 
-document.querySelector(`[data-target = ${path}]`).classList.add('catalog-container-descr-active');
+document.querySelector(`[data-target = ${path}]`).classList.add('painters-container-active');
   });
 });
 
@@ -226,37 +235,6 @@ new JustValidate('.form-1', {
   },
     colorWrong: '#D11616'
 });
-
-ymaps.ready(init);
-function init(){
-    // Создание карты.
-    var myMap = new ymaps.Map("map", {
-        // Координаты центра карты.
-        // Порядок по умолчанию: «широта, долгота».
-        // Чтобы не определять координаты центра карты вручную,
-        // воспользуйтесь инструментом Определение координат.
-        center: [55.76, 37.64],
-        // Уровень масштабирования. Допустимые значения:
-        // от 0 (весь мир) до 19.
-        zoom: 14
-    }, {
-    searchControlProvider: 'yandex#search'
-    }),
-
-    MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-),
-    myPlacemark = new ymaps.Placemark([55.758468, 37.601088], {
-}, {
-    iconLayout: 'default#image',
-    // Своё изображение иконки метки.
-    iconImageHref: './img/map-marker.svg',
-    // Размеры метки.
-    iconImageSize: [20, 20],
-    iconContentLayout: MyIconContentLayout
-  });
-    myMap.geoObjects.add(myPlacemark);
-};
 
 tippy('.js-tooltip', {
   theme: 'violet',
@@ -308,3 +286,43 @@ const params = {
   }
 
   setMenuListener();
+
+  ymaps.ready(init);
+function init(){
+    // Создание карты.
+    var myMap = new ymaps.Map("map", {
+        center: [55.76, 37.64],
+        zoom: 14,
+        controls: ['geolocationControl']
+    },
+    {
+    searchControlProvider: 'yandex#search'
+    }),
+
+    zoomControl = new ymaps.control.ZoomControl({
+      options: {
+        size: "small",
+        positition: {
+          right: "10"
+        },
+      }
+    });
+
+    myMap.controls.add(zoomControl);
+
+
+    MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+),
+    myPlacemark = new ymaps.Placemark([55.758468, 37.601088], {
+}, {
+    iconLayout: 'default#image',
+    // Своё изображение иконки метки.
+    iconImageHref: './img/map-marker.svg',
+    // Размеры метки.
+    iconImageSize: [20, 20],
+    iconContentLayout: MyIconContentLayout
+  });
+    myMap.geoObjects.add(myPlacemark);
+};
+
