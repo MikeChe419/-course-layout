@@ -11,26 +11,26 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header-top-search-button').addEventListener('click', function() {
-    document.querySelector('.header-top-search').classList.toggle('srch-input-active')
+  document.querySelector('.header_js-search').addEventListener('click', function() {
+    document.querySelector('.header__top-search').classList.toggle('header_top-search-active')
   })
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header-top-search-button').addEventListener('click', function() {
-    document.querySelector('.logo').classList.toggle('srch-input-active-1')
+  document.querySelector('.header_js-search').addEventListener('click', function() {
+    document.querySelector('.logo').classList.toggle('header_element_disabled')
   })
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header-top-search-button').addEventListener('click', function() {
-    document.querySelector('#burger').classList.toggle('srch-input-active-1')
+  document.querySelector('.header_js-search').addEventListener('click', function() {
+    document.querySelector('#burger').classList.toggle('header_element_disabled')
   })
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header-top-search-button').addEventListener('click', function() {
-    document.querySelector('.header-top-search-button').classList.toggle('open-menu')
+  document.querySelector('.header_js-search').addEventListener('click', function() {
+    document.querySelector('.header_js-search').classList.toggle('open-menu')
   })
 });
 
@@ -45,7 +45,7 @@ const swiper = new Swiper('.swiper1', {
     },
   });
 
-const slider2 = new Swiper ('.swiper2', {
+const slider2 = new Swiper ('.galery__swiper', {
       slidesPerView: 1,
       grid: {
         rows: 1,
@@ -60,7 +60,7 @@ const slider2 = new Swiper ('.swiper2', {
           grid: {
             rows: 2,
           },
-          spaceBetween: 50,
+          spaceBetween: 34,
         },
         1368: {
           slidesPerView: 3,
@@ -77,11 +77,11 @@ const slider2 = new Swiper ('.swiper2', {
       autoHeight: false,
       loop: false,
       navigation: {
-        nextEl: '.galery-btn-next',
-        prevEl: '.galery-btn-prev',
+        nextEl: '.galery__btn-next',
+        prevEl: '.galery__btn-prev',
         },
       pagination: {
-          el: ".galery-pagination",
+          el: ".galery__pagination",
           type: "fraction"
         },
 
@@ -111,7 +111,7 @@ const slider2 = new Swiper ('.swiper2', {
   }
 });
 
-  const slider4 = new Swiper ('.swiper4', {
+  const slider4 = new Swiper ('.projects__swiper', {
       slidesPerView: 1,
       spaceBetween: 50,
       loop: true,
@@ -124,17 +124,17 @@ const slider2 = new Swiper ('.swiper2', {
       },
     },
       navigation: {
-        nextEl: '.partners-btn-next',
-        prevEl: '.partners-btn-prev',
+        nextEl: '.projects__btn-next',
+        prevEl: '.projects__btn-prev',
         },
   });
 
-  const slider5 = new Swiper ('.swiper5', {
+  const slider5 = new Swiper ('.events__swiper', {
     slidesPerView: 1,
     spaceBetween: 50,
     pagination: {
       clickable: true,
-      el: '.events-pagination',
+      el: '.events__pagination',
     },
     breakpoints: {
       576: {
@@ -148,11 +148,22 @@ const slider2 = new Swiper ('.swiper2', {
         spaceBetween: 27,
         loopFillGroupWithBlank: true,
         navigation: {
-          nextEl: '.events-btn-next',
-          prevEl: '.events-btn-prev',
+          nextEl: '.events__btn-next',
+          prevEl: '.events__btn-prev',
+        },
+      },
+      1368: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 50,
+        loopFillGroupWithBlank: true,
+        navigation: {
+          nextEl: '.events__btn-next',
+          prevEl: '.events__btn-prev',
         },
       },
     },
+
   });
 
 function ArtDefault() {
@@ -164,13 +175,13 @@ function ArtDefault() {
 
 ArtDefault();
 
-document.querySelectorAll('.swpr-slde').forEach(function(tabsBtn) {
+document.querySelectorAll('.galery__slide-btn').forEach(function(tabsBtn) {
   tabsBtn.addEventListener('click', function(e){
     const picture=e.currentTarget.dataset.picture;
 
-    document.querySelectorAll('.swpr-slde').forEach(function(btn) {
-btn.classList.remove('swpr-slde-active')});
-      e.currentTarget.classList.add('swpr-slde-active');
+    document.querySelectorAll('.galery__slide-btn').forEach(function(btn) {
+btn.classList.remove('galery_slide-active')});
+      e.currentTarget.classList.add('galery_slide-active');
       document.querySelectorAll('.galery-modal-container').forEach(function(tabsBtn){
         tabsBtn.classList.remove('galery-modal-container-active')});
 
@@ -184,19 +195,19 @@ window.addEventListener('DOMContentLoaded', function() {
   })
 });
 
-$(".accordion").accordion();
+$(".catalog_accordion").accordion();
 
-document.querySelectorAll('.catalog-title-btn').forEach(function(tabsBtn) {
+document.querySelectorAll('.catalog__title-btn').forEach(function(tabsBtn) {
   tabsBtn.addEventListener('click', function(e){
     const path=e.currentTarget.dataset.path;
 
-    document.querySelectorAll('.catalog-title-btn').forEach(function(btn) {
-btn.classList.remove('catalog-title-btn-active')});
-      e.currentTarget.classList.add('catalog-title-btn-active');
-      document.querySelectorAll('.painters-container').forEach(function(tabsBtn){
-        tabsBtn.classList.remove('painters-container-active')});
+    document.querySelectorAll('.catalog__title-btn').forEach(function(btn) {
+btn.classList.remove('catalog__title-btn-active')});
+      e.currentTarget.classList.add('catalog__title-btn-active');
+      document.querySelectorAll('.catalog__content-item').forEach(function(tabsBtn){
+        tabsBtn.classList.remove('catalog_item-active')});
 
-document.querySelector(`[data-target = ${path}]`).classList.add('painters-container-active');
+document.querySelector(`[data-target = ${path}]`).classList.add('catalog_item-active');
   });
 });
 
@@ -207,14 +218,14 @@ document.querySelectorAll('.js-painter').forEach(function(tabsBtn) {
 document.querySelectorAll('.js-painter'). forEach(function(btn) {
   btn.classList.remove('js-painter-active')});
   e.currentTarget.classList.add('js-painter-active');
-  document.querySelectorAll('.catalog-content-artists-container').forEach(function(tabsBtn){
-    tabsBtn.classList.remove('artist-container-active')});
+  document.querySelectorAll('.catalog__artist-year-item ').forEach(function(tabsBtn){
+    tabsBtn.classList.remove('catalog_artist-year-item-active')});
 
-document.querySelector(`[data-target = ${painter}]`).classList.add('artist-container-active');
+document.querySelector(`[data-target = ${painter}]`).classList.add('catalog_artist-year-item-active');
   });
 });
 
-new JustValidate('.form-1', {
+new JustValidate('.js-form-validate', {
   rules: {
     name: {
       required:true,
@@ -296,15 +307,14 @@ function init(){
         controls: ['geolocationControl']
     },
     {
-    searchControlProvider: 'yandex#search'
+      geolocationControlPosition:  { top: "20px", right: "20px" },
+      zoomControlPosition:  { top: "200px", right: "20px" },
+      searchControlProvider: 'yandex#search'
     }),
 
     zoomControl = new ymaps.control.ZoomControl({
       options: {
         size: "small",
-        positition: {
-          right: "10"
-        },
       }
     });
 
