@@ -11,28 +11,34 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header_js-search').addEventListener('click', function() {
+  document.querySelector('.js-search').addEventListener('click', function() {
     document.querySelector('.header__top-search').classList.toggle('header_top-search-active')
   })
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header_js-search').addEventListener('click', function() {
-    document.querySelector('.logo').classList.toggle('header_element_disabled')
+  document.querySelector('.js-search').addEventListener('click', function() {
+    document.querySelector('.header__logo-link').classList.toggle('header_element_disabled')
   })
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header_js-search').addEventListener('click', function() {
+  document.querySelector('.js-search').addEventListener('click', function() {
     document.querySelector('#burger').classList.toggle('header_element_disabled')
   })
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.header_js-search').addEventListener('click', function() {
-    document.querySelector('.header_js-search').classList.toggle('open-menu')
+  document.querySelector('.js-search').addEventListener('click', function() {
+    document.querySelector('.js-search').classList.toggle('open-menu')
   })
 });
+
+ window.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.header__nav-link').forEach(addEventListener('click', function() {
+    this.document.querySelector('#menu').classList.toogle('is-active-1')
+  }));
+  });
 
 const swiper = new Swiper('.swiper1', {
   slidesPerView: 1,
@@ -195,7 +201,11 @@ window.addEventListener('DOMContentLoaded', function() {
   })
 });
 
-$(".catalog_accordion").accordion();
+$(".jq-accordion").accordion({
+  heightStyle: "content",
+  collapsible: true,
+  icons: false,
+});
 
 document.querySelectorAll('.catalog__title-btn').forEach(function(tabsBtn) {
   tabsBtn.addEventListener('click', function(e){
@@ -205,9 +215,9 @@ document.querySelectorAll('.catalog__title-btn').forEach(function(tabsBtn) {
 btn.classList.remove('catalog__title-btn-active')});
       e.currentTarget.classList.add('catalog__title-btn-active');
       document.querySelectorAll('.catalog__content-item').forEach(function(tabsBtn){
-        tabsBtn.classList.remove('catalog_item-active')});
+        tabsBtn.classList.remove('item-active')});
 
-document.querySelector(`[data-target = ${path}]`).classList.add('catalog_item-active');
+document.querySelector(`[data-target = ${path}]`).classList.add('item-active');
   });
 });
 
@@ -218,10 +228,10 @@ document.querySelectorAll('.js-painter').forEach(function(tabsBtn) {
 document.querySelectorAll('.js-painter'). forEach(function(btn) {
   btn.classList.remove('js-painter-active')});
   e.currentTarget.classList.add('js-painter-active');
-  document.querySelectorAll('.catalog__artist-year-item ').forEach(function(tabsBtn){
-    tabsBtn.classList.remove('catalog_artist-year-item-active')});
+  document.querySelectorAll('.catalog__artist-year-item').forEach(function(tabsBtn){
+    tabsBtn.classList.remove('artist-active')});
 
-document.querySelector(`[data-target = ${painter}]`).classList.add('catalog_artist-year-item-active');
+document.querySelector(`[data-target = ${painter}]`).classList.add('artist-active');
   });
 });
 
@@ -335,4 +345,19 @@ function init(){
   });
     myMap.geoObjects.add(myPlacemark);
 };
+
+document.querySelectorAll('.js-scroll-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const href = this.getAttribute('href').substring(1);
+    const scrollTarget = document.getElementById(href);
+    const elementPosition = scrollTarget.getBoundingClientRect().top;
+
+    window.scrollBy({
+      top:elementPosition,
+      behavior: 'smooth'
+    });
+  });
+});
 
