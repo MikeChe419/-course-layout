@@ -2640,6 +2640,13 @@ catalog__content-list {
     color: var(--color-dark);
   }
 
+  .open-menu {
+    width: 23px;
+    height: 23px;
+    background-image: url("../img/burger.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
 
   .header__burger-btn::before,
   .header__burger-btn::after {
@@ -2652,36 +2659,31 @@ catalog__content-list {
     position: absolute;
     top: 50%;
     left: 0;
-    width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: currentColor;
     transform-origin: right;
     transition: transform .2s ease;
   }
 
   .header__burger-btn::before {
-    transform: translateY(calc(-100% - 6px));
+    width: 100%;
+    transform: translateY(calc(-100% - 9px));
   }
 
   .header__burger-btn span {
+    width: 78%;
     top: calc(50% - 1px);
-    transition: opacity .5s ease, transform .2s ease;
-  }
-
-  .header__burger-btn::after {
-    transform: translateY(calc(100% + 5px));;
+    transition: opacity .2s ease, transform .2s ease;
   }
 
   .header__burger-btn:active {
-    color: var(--color-dark-orange);
+    background-color: var(--color-violet);
   }
 
-  .header__burger-btn:active span {
-    transform: scaleX(calc(25 / 30));
-  }
 
   .header__burger-btn::after {
-    transform: scaleX(calc(18 / 30)) translateY(calc(100% + 5px));
+    width: 67%;
+    transform:  translateY(calc(100% + 9px));
   }
 
   .is-opened.header__burger-btn span,
@@ -2702,6 +2704,7 @@ catalog__content-list {
 
   .is-opened.header__burger-btn::after {
     top: 50%;
+    width: 100%;
     transform: translateY(-50%) rotate(-45deg);
   }
 
@@ -3050,6 +3053,14 @@ catalog__content-list {
     position: relative;
   }
 
+  .header__burger-btn::before {
+    transform: translateY(calc(-100% - 7px));
+  }
+
+   .header__burger-btn::after {
+    transform:  translateY(calc(100% + 6px));
+  }
+
   .header__top-search {
     background: var(--color-black);
     top: -15px;
@@ -3058,6 +3069,11 @@ catalog__content-list {
     position: absolute;
     width: 100vw;
     z-index: 2;
+  }
+
+  .open-menu {
+    width: 16px;
+    height: 16px;
   }
 
   .header__top-form {
