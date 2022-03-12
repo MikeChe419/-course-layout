@@ -1,45 +1,99 @@
+(() => {
+  function setBurger (params) {
+    const btn = document.querySelector(`.${params.btnClass}`);
+    const menu = document.querySelector(`.${params.menuClass}`);
+    const links = menu.querySelectorAll(`.${params.linksClass}`);
 
-/*window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#burger').addEventListener('click', function() {
-    document.querySelector('#menu').classList.toggle('is-active-1')
-  })
+    function closeBurger () {
+      if (window.screen.width <= 1368) {
+        btn.classList.toggle(params.activeClass);
+        if (
+          !menu.classList.contains(params.activeClass) &&
+          !menu.classList.contains(params.hiddenClass)
+        ) {
+            menu.classList.add(params.activeClass);
+            document.body.style.overflow = 'hidden';
+          } else {
+          menu.classList.add(params.hiddenClass);
+        document.body.removeAttribute('style');
+        }
+      }
+    };
+
+    menu.addEventListener("animationend", function () {
+      if (this.classList.contains(params.hiddenClass)) {
+        this.classList.remove(params.activeClass);
+        this.classList.remove(params.hiddenClass);
+        btn.classList.remove(params.hiddenClass);
+    }
+  });
+
+  btn.addEventListener("click", closeBurger);
+
+  links.forEach((link) => {
+    link.addEventListener("click", closeBurger);
+  });
+}
+
+setBurger({
+  btnClass: "header__burger-btn",
+  menuClass: "header__nav",
+  activeClass: "is-opened",
+  hiddenClass: "is-closed",
+  linksClass: "js-menu-link"
 });
+})();
 
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('#burger').addEventListener('click', function() {
-    document.querySelector('#burger').classList.toggle('open-menu')
-  })
-});*/
+function setSearch(params) {
+  const openBtn = document.querySelector(`.${params.openBtnClass}`);
+  const search = document.querySelector(`.${params.searchClass}`);
+  const closeBtn = search.querySelector(`.${params.closeBtnClass}`);
 
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.js-search').addEventListener('click', function() {
-    document.querySelector('.header__top-search').classList.toggle('header_top-search-active')
-  })
+  search.addEventListener("animationend", function (evt) {
+    if (this._isOpened) {
+      this.classList.remove(params.activeClass);
+      this.classList.remove(params.hiddenClass);
+      this._isOpened = false;
+    } else {
+      this._isOpened = true;
+    }
+  });
+
+  search.addEventListener('click', function(evt) {
+    evt._isSearch = true;
+  });
+
+  openBtn.addEventListener("click", function (evt) {
+    this.disabled = true;
+
+    if (
+      !search.classList.contains(params.activeClass) &&
+      !search.classList.contains(params.hiddenClass)
+    ) {
+      search.classList.add(params.activeClass);
+    }
+  });
+
+  closeBtn.addEventListener('click', function () {
+    openBtn.disabled = false;
+    search.classList.add(params.hiddenClass);
+  });
+
+  document.body.addEventListener('click', function (evt) {
+    if (!evt._isSearch && search._isOpened) {
+      openBtn.disabled = false;
+      search.classList.add(params.hiddenClass);
+    }
+  });
+}
+
+setSearch({
+  openBtnClass: "js-open-search", // класс кнопки открытия
+  closeBtnClass: "js-close", // класс кнопки закрытия
+  searchClass: "js-form", // класс формы поиска
+  activeClass: "is-opened", // класс открытого состояния
+  hiddenClass: "is-closed" // класс закрывающегося состояния (удаляется сразу после закрытия)
 });
-
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.js-search').addEventListener('click', function() {
-    document.querySelector('.header__logo-link').classList.toggle('header_element_disabled')
-  })
-});
-
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.js-search').addEventListener('click', function() {
-    document.querySelector('#burger').classList.toggle('header_element_disabled')
-  })
-});
-
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.js-search').addEventListener('click', function() {
-    document.querySelector('.js-search').classList.toggle('open-menu')
-  })
-});
-
-/* window.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.header__nav-link').forEach(addEventListener('click', function() {
-    document.querySelector('#menu').classList.toogle('is-active-1')
-  }));
-  });*/
 
 const swiper = new Swiper('.swiper1', {
   slidesPerView: 1,
@@ -310,8 +364,8 @@ const params = {
   setMenuListener();
 
   ymaps.ready(init);
-function init(){
-    // Создание карты.
+  function init(){
+
     var myMap = new ymaps.Map("map", {
         center: [55.76, 37.64],
         zoom: 14,
@@ -331,16 +385,15 @@ function init(){
 
     myMap.controls.add(zoomControl);
 
-
     MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
     '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
 ),
     myPlacemark = new ymaps.Placemark([55.758468, 37.601088], {
 }, {
     iconLayout: 'default#image',
-    // Своё изображение иконки метки.
+
     iconImageHref: './img/map-marker.svg',
-    // Размеры метки.
+
     iconImageSize: [20, 20],
     iconContentLayout: MyIconContentLayout
   });
@@ -361,51 +414,4 @@ document.querySelectorAll('.js-scroll-link').forEach(link => {
     });
   });
 });
-
-(() => {
-  function setBurger (params) {
-    const btn = document.querySelector(`.${params.btnClass}`);
-    const menu = document.querySelector(`.${params.menuClass}`);
-    const links = menu.querySelectorAll(`.${params.linksClass}`);
-
-    menu.addEventListener("animationend", function () {
-      if (this.classList.contains(params.hiddenClass)) {
-        this.classList.remove(params.activeClass);
-        this.classList.remove(params.hiddenClass);
-        btn.classList.remove(params.hiddenClass);
-    }
-  });
-
-  btn.addEventListener("click", function () {
-    this.classList.toggle(params.activeClass);
-    if (
-      !menu.classList.contains(params.activeClass) &&
-      !menu.classList.contains(params.hiddenClass)
-    ) {
-      menu.classList.add(params.activeClass);
-      document.body.style.overflow = 'hidden';
-    } else {
-      menu.classList.add(params.hiddenClass);
-      document.body.removeAttribute('style');
-    }
-  });
-
-  links.forEach((link) => {
-    link.addEventListener("click", function() {
-      menu.classList.remove(params.activeClass);
-      btn.classList.remove(params.activeClass);
-    });
-  });
-}
-
-setBurger({
-  btnClass: "header__burger-btn",
-  menuClass: "header__nav",
-  activeClass: "is-opened",
-  hiddenClass: "is-closed",
-  linksClass: "js-menu-link"
-});
-})();
-
-
 

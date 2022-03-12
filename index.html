@@ -32,15 +32,14 @@
     <header class="header">
       <div class="container header__container flex">
         <div class="header__top-container flex">
-          <button type="submit" class="header__top-srch-btn js-search btn-search btn-reset" aria-label="Поиск" data-srch="open"></button>
-          <div class="header__top-search" data-target="open">
-            <form method="POST" class="header__top-form flex">
+          <button type="submit" class="header__top-srch-btn btn-search btn-reset js-open-search" aria-label="Поиск"></button>
+            <form method="POST" class="header__top-form flex js-form">
               <button type="submit" class="header__srch-btn btn-search btn-reset" aria-label="Поиск"></button>
               <label class="header__top-label flex" for="search-1">
                 <input type="search" class="header__search-input" placeholder="Поиск по сайту" id="search-1">
               </label>
+              <button class="close-btn js-close" type="button"></button>
             </form>
-          </div>
           <a class="header__logo-link">
             <img class="logo" src="img/Лого.svg" alt="Blanchard-художественная галерея">
           </a>
@@ -84,12 +83,12 @@
               <li class="header__genre-nav-list-item">
                 <button class="item-responsive btn-reset header__genre-btn js-header-dropdown-btn" data-genres="realism">Реализм</button>
                 <div class="header__dropdown-container js-header-drop" data-target="realism">
-                  <div class="header__artists-container scroll-bar-container" data-simplebar id="artists-container1">
+                  <div class="header__artists-container scroll-bar-container"data-simplebar id="artists-container1">
                     <ul class="header__artists-list list-reset">
-                       <li class="header__artists-list-item " id="genre-artists-item1"><a href="#">Тинторетто</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item2"><a href="#">Фридрих</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item3"><a href="#">Леонардо</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item4"><a href="#">Вероккьо</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item1"><a href="#" class="header__artists-item-link">Тинторетто</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item2"><a href="#" class="header__artists-item-link">Фридрих</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item3"><a href="#" class="header__artists-item-link">Леонардо</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item4"><a href="#" class="header__artists-item-link">Вероккьо</a></li>
                     </ul>
                   </div>
                 </div>
@@ -99,10 +98,10 @@
                 <div class="header__dropdown-container js-header-drop" data-target="impressionism">
                   <div class="header__artists-container scroll-bar-container" data-simplebar id="artists-container2">
                     <ul class="header__artists-list list-reset">
-                      <li class="header__artists-list-item " id="genre-artists-item5"><a href="#">Моне</a></li>
-                      <li class="header__artists-list-item " id="genre-artists-item6"><a href="#">Сислей</a></li>
-                      <li class="header__artists-list-item " id="genre-artists-item7"><a href="#">Мане</a></li>
-                      <li class="header__artists-list-item " id="genre-artists-item8"><a href="#">Ренуар</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item5"><a href="#" class="header__artists-item-link">Моне</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item6"><a href="#" class="header__artists-item-link">Сислей</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item7"><a href="#" class="header__artists-item-link">Мане</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item8"><a href="#" class="header__artists-item-link">Ренуар</a></li>
                     </ul>
                   </div>
                 </div>
@@ -112,10 +111,10 @@
                 <div class="header__dropdown-container js-header-drop" data-target="postimpressionism">
                    <div class="header__artists-container scroll-bar-container" data-simplebar id="artists-container3">
                     <ul class="header__artists-list list-reset">
-                       <li class="header__artists-list-item " id="genre-artists-item9"><a href="#">Ван Гог</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item10"><a href="#">Сезанн</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item11"><a href="#">Гоген</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item12"><a href="#">Сера</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item9"><a href="#" class="header__artists-item-link">Ван Гог</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item10"><a href="#" class="header__artists-item-link">Сезанн</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item11"><a href="#" class="header__artists-item-link">Гоген</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item12"><a href="#" class="header__artists-item-link">Сера</a></li>
                     </ul>
                   </div>
                 </div>
@@ -125,10 +124,10 @@
                 <div class="header__dropdown-container js-header-drop" data-target="vanguard">
                    <div class="header__artists-container scroll-bar-container" data-simplebar id="artists-container4">
                     <ul class="header__artists-list list-reset">
-                      <li class="header__artists-list-item " id="genre-artists-item13"><a href="#">Кандинский</a></li>
-                      <li class="header__artists-list-item " id="genre-artists-item14"><a href="#">Маринетти</a></li>
-                      <li class="header__artists-list-item " id="genre-artists-item15"><a href="#">Малевич</a></li>
-                      <li class="header__artists-list-item " id="genre-artists-item16"><a href="#">Пикассо</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item13"><a href="#" class="header__artists-item-link">Кандинский</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item14"><a href="#" class="header__artists-item-link">Маринетти</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item15"><a href="#" class="header__artists-item-link">Малевич</a></li>
+                      <li class="header__artists-list-item" id="genre-artists-item16"><a href="#" class="header__artists-item-link">Пикассо</a></li>
                    </ul>
                   </div>
                 </div>
@@ -138,10 +137,10 @@
                 <div class="header__dropdown-container js-header-drop" data-target="futurism">
                    <div class="header__artists-container scroll-bar-container" data-simplebar id="artists-container5">
                     <ul class="header__artists-list list-reset">
-                       <li class="header__artists-list-item " id="genre-artists-item17"><a href="#">Карра</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item18"><a href="#">Прателла</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item19"><a href="#">Северини</a></li>
-                       <li class="header__artists-list-item " id="genre-artists-item20"><a href="#">Балла</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item17"><a href="#" class="header__artists-item-link">Карра</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item18"><a href="#" class="header__artists-item-link">Прателла</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item19"><a href="#" class="header__artists-item-link">Северини</a></li>
+                       <li class="header__artists-list-item" id="genre-artists-item20"><a href="#" class="header__artists-item-link">Балла</a></li>
                     </ul>
                   </div>
                 </div>
@@ -359,10 +358,7 @@
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1400 по 1499 гг.</span>
                             <span class="catalog__accordion-btn-img">
-                              <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                              </svg>
+
                           </span>
                         </button>
                         <div class="catalog__artists-list-container flex" >
@@ -476,10 +472,7 @@
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1400 по 1499 гг.</span>
                             <span class="catalog__accordion-btn-img">
-                              <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                              </svg>
+
                           </span>
                         </button>
                         <div class="catalog__artists-list-container flex" >
@@ -610,15 +603,9 @@
                       <li class="catalog__years-nav-list-item flex">
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1400 по 1499 гг.</span>
-                            <span class="catalog__accordion-btn-img">
-                              <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                              </svg>
-                          </span>
+                            <span class="catalog__accordion-btn-img"></span>
                         </button>
                         <div class="catalog__artists-list-container flex" >
-
                           <div class="painters-container">
                             <ul class="artists-names-list list-reset" >
                                <li class="artists-names-list-item"><button class="btn-reset btn-painter js-painter" data-painter="another">Бенедетто ди Биндо </button></li>
@@ -652,12 +639,7 @@
                       <li class="catalog__years-nav-list-item flex">
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1500 по 1599 гг.</span>
-                          <span class="catalog__accordion-btn-img">
-                            <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                              <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                            </svg>
-                         </span>
+                          <span class="catalog__accordion-btn-img"></span>
                         </button>
                         <div class="empty-accordeon-container flex">
                           <img class="empty-img" src="img/empy-img.jpg" alt="Здесь пока пусто">
@@ -671,56 +653,31 @@
                        <li class="catalog__years-nav-list-item flex">
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1600 по 1699 гг.</span>
-                          <span class="catalog__accordion-btn-img">
-                            <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                              <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                            </svg>
-                          </span>
+                          <span class="catalog__accordion-btn-img"></span>
                         </button>
                       </li>
                       <li class="catalog__years-nav-list-item flex">
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1700 по 1799 гг.</span>
-                          <span class="catalog__accordion-btn-img">
-                            <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                              <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                            </svg>
-                          </span>
+                          <span class="catalog__accordion-btn-img"></span>
                         </button>
                       </li>
                       <li class="catalog__years-nav-list-item flex">
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1800 по 1899 гг.</span>
-                          <span class="catalog__accordion-btn-img">
-                            <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                              <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                            </svg>
-                          </span>
+                          <span class="catalog__accordion-btn-img"></span>
                         </button>
                       </li>
                       <li class="catalog__years-nav-list-item flex">
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1900 по 1999 гг.</span>
-                          <span class="catalog__accordion-btn-img">
-                            <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                              <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                            </svg>
-                          </span>
+                          <span class="catalog__accordion-btn-img"></span>
                         </button>
                       </li>
                       <li class="catalog__years-nav-list-item flex">
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 2000 г.</span>
-                          <span class="catalog__accordion-btn-img">
-                            <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                              <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                            </svg>
-                          </span>
+                          <span class="catalog__accordion-btn-img"></span>
                         </button>
                       </li>
                 </ul>
@@ -741,10 +698,7 @@
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1400 по 1499 гг.</span>
                             <span class="catalog__accordion-btn-img">
-                              <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                              </svg>
+
                           </span>
                         </button>
                         <div class="catalog__artists-list-container flex" >
@@ -850,10 +804,7 @@
                         <button class="catalog__accordion-btn btn-reset flex">
                           <span class="catalog__accordion-btn-text">C 1400 по 1499 гг.</span>
                             <span class="catalog__accordion-btn-img">
-                              <svg class="catalog__accordion-btn-icon" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25Z" fill="#ECECEC"/>
-                                <path d="M33.3333 23.3333L25 31.6667L16.6667 23.3333" stroke="black"/>
-                              </svg>
+
                           </span>
                         </button>
                         <div class="catalog__artists-list-container flex" >
@@ -1244,31 +1195,31 @@
               <div class="projects__swiper">
                 <div class="swiper-wrapper projects__wrapper">
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner1.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner1.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner2.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner2.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner3.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner3.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner4.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner4.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner5.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner5.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner6.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner6.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner7.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner7.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner8.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner8.png" alt="" class="projects__item-img"></a>
                   </div>
                   <div class="swiper-slide projects__slide">
-                    <a href="#" class="projects__partner-link"><img src="img/partner9.png" alt="" class="partners__item-img"></a>
+                    <a href="#" class="projects__partner-link"><img src="img/partner9.png" alt="" class="projects__item-img"></a>
                   </div>
                 </div>
               </div>
