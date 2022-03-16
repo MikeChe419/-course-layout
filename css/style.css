@@ -340,7 +340,7 @@ a:focus {
 
 .header__login-link:hover {
   color: var(--color-hover-violet);
-  background-image: url("../img/login-hover.png");
+  background-image: url("../img/enter_hover.svg");
 }
 
 .header__login-link:focus {
@@ -351,7 +351,7 @@ a:focus {
 
 .header__login-link:active {
   color: var(--color-violet);
-  background-image: url("../img/enter_hover.png");
+  background-image: url("../img/enter_hover.svg");
   background-color: rgba(0, 0, 0, 0.01);
 }
 
@@ -576,7 +576,6 @@ a:focus {
   background-color: rgba(0, 0, 0, 0.01);
 }
 
-
 .header__dropdown-container {
   display: none;
   position: absolute;
@@ -634,7 +633,6 @@ a:focus {
   left: 0;
   right: 0;
   background-color: var(--color-white);
-  height: 28px;
   width: 2px;
   opacity: 1;
 }
@@ -823,7 +821,7 @@ a:focus {
   font-weight: bold;
   font-size: 18px;
   line-height: 25px;
-  padding: 17px 30px;
+  padding: 22px 35px;
   transition-property: border-color, background;
   transition-duration: .4s;
   transition-timing-function: ease;
@@ -1377,12 +1375,12 @@ catalog__content-list {
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 24px;
-  line-height: 24px;
+  line-height: 32px;
 }
 
 .catalog__artist-years {
   margin: 0;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   font-size: 12px;
   line-height: 12px;
   color: var(--color-lightgray);
@@ -1475,11 +1473,11 @@ catalog__content-list {
 
 .catalog__accordion-btn-img::before {
   position: absolute;
-  top: 17px;
-  left: 20px;
+  top: 34%;
+  left: 40%;
   content: "";
-  width: 12px;
-  height: 12px;
+  width: 24%;
+  height: 24%;
   border-bottom: 1px solid var(--color-black);
   border-right: 1px solid var(--color-black);
   transform: rotate(45deg);
@@ -2190,7 +2188,7 @@ catalog__content-list {
   text-align: center;
   display: block;
   border: 1px solid var(--color-lightgray);
-  height: 100%;
+  height: calc(100% - 5px);
   margin: auto;
   opacity: .5;
   filter: grayscale(1);
@@ -2264,11 +2262,11 @@ catalog__content-list {
 }
 
 .projects__btn-prev {
-  left: 10px;
+  left: 0;
 }
 
 .projects__btn-next {
-  right: 10px;
+  right: 0;
 }
 
 .projects__btn-prev::before, .projects__btn-next::before {
@@ -3305,7 +3303,7 @@ catalog__content-list {
 
   .hero__title {
     font-size: 32px;
-    line-height: 44px;
+    line-height: 40px;
   }
 
   .hero__descr {
@@ -3407,7 +3405,7 @@ catalog__content-list {
   }
 
   .catalog__accordion-btn {
-    padding-top: 22px;
+    padding-top: 20px;
     padding-bottom: 20px;
   }
 
@@ -3417,18 +3415,28 @@ catalog__content-list {
     line-height: 32px;
   }
 
+  .catalog__artist-img,
+  .catalog__artist-name {
+    margin-bottom: 20px;
+  }
+
   .catalog__artists-list-container {
     padding: 20px 0;
 }
 
   .btn-painter {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 28px;
     padding: 0;
   }
 
   .catalog__countries-list-item:not(:last-child) {
     margin-right: 15px;
+  }
+
+  .catalog__accordion-btn-img {
+    width: 30px;
+    height: 30px;
   }
 
   .catalog__container-descr {
@@ -3449,6 +3457,10 @@ catalog__content-list {
     padding: 0;
   }
 
+  .events__wrapper {
+    min-height: auto;
+  }
+
   .events__item-container {
     padding: 15px 20px 50px 20px ;
   }
@@ -3458,8 +3470,8 @@ catalog__content-list {
   }
 
   .events__item-descr {
-    font-size: 14px;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 32px;
   }
 
   .projects__swiper {
@@ -3624,14 +3636,18 @@ catalog__content-list {
   }
 
   .projects__popup-container {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .projects__partners-title {
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     font-weight: 600;
     font-size: 18px;
     line-height: 32px;
+  }
+
+  .projects__partner-link {
+    height: 100%;
   }
 
   .contacts {
