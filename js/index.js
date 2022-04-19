@@ -130,7 +130,7 @@ const slider2 = new Swiper ('.galery__swiper', {
           grid: {
             rows: 2,
           },
-          spaceBetween: 50,
+          spaceBetween: 30,
         },
       },
 

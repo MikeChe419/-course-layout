@@ -1024,7 +1024,7 @@ a:focus {
 .galery__slider-container {
   position: relative;
   padding-top: 85px;
-  max-width: 1155px;
+  max-width: 1050px;
 }
 
 .galery__swiper {
@@ -1035,6 +1035,7 @@ a:focus {
 .galery__slide-btn {
   display: block;
   height: calc( (100% - 56px) / 2 );
+  width: calc((100% - 150px) / 3);
   overflow: hidden;
 }
 
